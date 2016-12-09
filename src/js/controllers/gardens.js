@@ -13,12 +13,17 @@ function GardensNewController(Garden, $state, $auth) {
   gardensNew.garden.user_id = $auth.getPayload().id;
 
   function create() {
-    Garden.save(gardensNew.garden, () => {
-      $state.go('gardensIndex');
+    Garden.save(gardensNew.garden, (garden) => {
+      // console.log(garden);
+      // window.location = '/gardens/';
+      $state.go('imagesNew', {id: garden.id});
     });
   }
   gardensNew.create = create;
 }
+
+
+
 
 GardensIndexController.$inject = ['Garden'];
 function GardensIndexController(Garden) {
@@ -27,36 +32,33 @@ function GardensIndexController(Garden) {
 }
 
 
+
+
 GardensShowController.$inject = ['Garden', '$state', '$auth'];
 function GardensShowController(Garden, $state, $auth) {
   const gardensShow = this;
   this.isLoggedIn = $auth.isAuthenticated;
   gardensShow.garden = Garden.get($state.params);
-
-
   // function isCurrentUser() {
   //   Garden.get({ id: ($state.params) }, (garden) => {
   //     gardensShow.garden = garden;
   //   });
   //   return gardensShow.garden.user.id === $auth.getPayload().id;
   // }
-
-
   function deleteGarden() {
     gardensShow.garden.$remove(() => {
       $state.go('gardensIndex');
     });
   }
-  // this.isCurrentUser = isCurrentUser;
   this.deleteGarden = deleteGarden;
 }
+
 
 
 
 GardensEditController.$inject = ['Garden', '$state'];
 function GardensEditController(Garden, $state) {
   const gardensEdit = this;
-
   gardensEdit.garden = Garden.get($state.params);
 
   function update() {

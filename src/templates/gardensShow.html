@@ -5,5 +5,5 @@
       <img style="width: 500px;" ng-src="{{gardensShow.garden.images[0].url}}" alt="Description" />
       <p>About: {{ gardensShow.garden.description }}</p>
   <a ng-if="gardensShow.isCurrentUser()" ui-sref="gardensEdit({ id: gardensShow.garden.id })" class="button">Edit</a>
-  <button ng-click="gardensShow.delete()">Delete</button>
+  <button ng-click="gardensShow.deleteGarden()">Delete</button>
 </section>

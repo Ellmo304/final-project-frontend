@@ -1,0 +1,15 @@
+<section class="row">
+  <form ng-submit="itemsNew.create()">
+    <div class="twelve columns">
+      <!-- <input type="hidden" name="garden_id" ng-model="itemsNew.item.garden_id"> -->
+      <select>
+        <option ng-model="itemsNew.item.item_type" value="Plant">Plant</option>
+        <option ng-model="itemsNew.item.item_type" value="Material">Material</option>
+      </select>
+
+      <label>Name</label>
+      <input type="text" name="url" placeholder="Image Url" ng-model="imagesNew.image.url" class="u-full-width">
+    </div>
+    <button>Update</button>
+  </form>
+</section>

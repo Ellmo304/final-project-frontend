@@ -39,6 +39,16 @@ function Router($stateProvider, $urlRouterProvider) {
     templateUrl: '/templates/gardensEdit.html',
     controller: 'GardensEditController as gardensEdit'
   })
+  .state('imagesNew', {
+    url: '/gardens/:id/imagesNew',
+    templateUrl: '/templates/imagesNew.html',
+    controller: 'ImagesNewController as imagesNew'
+  })
+  .state('items', {
+    url: '/gardens/:id/items',
+    templateUrl: '/templates/itemsNew.html',
+    controller: 'ItemsNewController as itemsNew'
+  })
     .state('register', {
       url: '/register',
       templateUrl: '/templates/register.html',
