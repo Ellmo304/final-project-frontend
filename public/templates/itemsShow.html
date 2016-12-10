@@ -1,9 +1,0 @@
-<section>
-  <h1>Items Show</h1>
-      <h2>{{ itemsShow.item.name }}</h2>
-      <h4>By {{ itemsShow.item.price }}</h4>
-      <img style="width: 500px;" ng-src="{{itemsShow.item.image}}" alt="Description" />
-      <p>About: {{ itemsShow.item.description }}</p>
-  <a ui-sref="itemsEdit({ id: itemsShow.item.id })" class="button">Edit</a>
-  <button ng-click="itemsShow.deleteItem()">Delete</button>
-</section>

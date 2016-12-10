@@ -31,8 +31,8 @@ function Router($stateProvider, $urlRouterProvider) {
   })
   .state('gardensShow', {
     url: '/gardens/:id',
-    templateUrl: '/templates/gardens/gardensShow.html',
-    controller: 'GardensShowController as gardensShow'
+    templateUrl: '/templates/gardens/gardensShow.html'
+    // controller: 'GardensShowController as gardensShow'
   })
   .state('gardensEdit', {
     url: '/gardens/:id/edit',
@@ -58,6 +58,16 @@ function Router($stateProvider, $urlRouterProvider) {
     url: '/items/:id',
     templateUrl: '/templates/items/itemsShow.html',
     controller: 'ItemsShowController as itemsShow'
+  })
+  .state('commentsIndex', {
+    url: '/comments',
+    templateUrl: '/templates/comments.html',
+    controller: 'CommentsIndexController as commentsIndex'
+  })
+  .state('designsNew', {
+    url: '/designs/new',
+    templateUrl: '/templates/designs/designsNew.html',
+    controller: 'DesignsNewController as designsNew'
   })
     .state('register', {
       url: '/register',

@@ -1,9 +1,8 @@
 <section class="row">
   <form ng-submit="itemsNew.create()">
     <div class="twelve columns">
-      <select>
-        <option disabled selected>Item Type</option>
-        <option ng-model="itemsNew.item.item_type" value="Plant">Plant</option>
+      <select ng-model="itemsNew.item.item_type">
+        <option value="Plant">Plant</option>
         <option ng-model="itemsNew.item.item_type" value="Material">Material</option>
       </select>
 

@@ -14,8 +14,6 @@ function GardensNewController(Garden, $state, $auth) {
 
   function create() {
     Garden.save(gardensNew.garden, (garden) => {
-      // console.log(garden);
-      // window.location = '/gardens/';
       $state.go('imagesNew', {id: garden.id});
     });
   }
@@ -39,6 +37,8 @@ function GardensShowController(Garden, $state, $auth) {
   const gardensShow = this;
   this.isLoggedIn = $auth.isAuthenticated;
   gardensShow.garden = Garden.get($state.params);
+  console.log(gardensShow.garden);
+
   // function isCurrentUser() {
   //   Garden.get({ id: ($state.params) }, (garden) => {
   //     gardensShow.garden = garden;

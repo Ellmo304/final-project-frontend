@@ -1,0 +1,17 @@
+<section>
+  <h1>Gardens Index</h1>
+  <ul>
+    <li class="gardenBox col-md-12" ng-repeat="comment in commentsIndex.all">
+      <a ui-sref="commentsShow({ id: comment.id })">
+      <h2>{{ comment.body }}</h2>
+      <h2>{{ comment.garden }}</h2>
+
+       <!-- <img style="width: 500px;" ng-src="{{garden.images[0].url}}" alt="Description" /> -->
+
+      <h3>Posted by: {{ comment.user.username }}</h3>
+      <h4>{{ comment.date }}</h4>
+      <!-- <h4>{{ garden.items }}</h4> -->
+    </a>
+    </li>
+  </ul>
+</section>

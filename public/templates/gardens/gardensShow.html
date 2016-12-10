@@ -1,9 +1,41 @@
-<section>
-  <h1>Gardens Show</h1>
-      <h2>{{ gardensShow.garden.title }}</h2>
+<section ng-controller="GardensShowController as gardensShow">
+
+<div class="gardenBox col-md-3">
+  <ul>
+    <h3>Plants</h3>
+    <li ng-repeat="item in gardensShow.garden.items | filter : 'Plant' : comparator : 'item_type'"><h6><a ui-sref="itemsShow({ id: item.id })">{{ item.name }}  {{ item.price }}</a></h6></li>
+  </ul>
+  <ul>
+    <h3>Materials</h3>
+    <li ng-repeat="item in gardensShow.garden.items | filter : 'Material' : comparator : 'item_type'"><h6><a ui-sref="itemsShow({ id: item.id })">{{ item.name }}  {{ item.price }}</a> </h6></li>
+  </ul>
+</div>
+
+
+  <div class="gardenBox col-md-6">
+      <h1>{{ gardensShow.garden.title }}</h1>
       <h4>By {{ gardensShow.garden.user.username }}</h4>
       <img style="width: 500px;" ng-src="{{gardensShow.garden.images[0].url}}" alt="Description" />
       <p>About: {{ gardensShow.garden.description }}</p>
   <a ng-if="gardensShow.isCurrentUser()" ui-sref="gardensEdit({ id: gardensShow.garden.id })" class="button">Edit</a>
   <button ng-click="gardensShow.deleteGarden()">Delete</button>
+  </div>
 </section>
+
+
+<div class="gardenBox col-md-3">
+  <div ng-controller="CommentsNewController as commentsNew">
+<h2>Comments</h2>
+
+<form ng-submit="commentsNew.create()">
+  <input type="hidden" name="user_id" ng-model="commentsNew.comment.user_id">
+  <input type="hidden" name="garden_id" ng-model="commentsNew.comment.garden_id">
+  <input type="text" name="body" placeholder="Post a comment..." ng-model="commentsNew.comment.body" class="u-full-width">
+  <input type="number" name="rating" ng-model="commentsNew.comment.rating" class="u-full-width">
+  <button>Submit</button>
+</form>
+</div>
+<ul ng-controller="GardensShowController as gardensShow">
+  <li ng-repeat="comment in gardensShow.garden.comments"><h6>{{ comment.body }} Posted by: {{ comment.user.username }} On: {{comment.date}} <strong>{{ comment.rating }}/5</strong></h6></li>
+</ul>
+  </div>

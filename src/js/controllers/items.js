@@ -12,13 +12,9 @@ function ItemsNewController(Item, $state) {
   itemsNew.item = {};
 
   itemsNew.item.garden_ids = [];
-  // itemsNew.item.garden_id = parseInt($state.params.id);
-
-  itemsNew.item.garden_ids = [1,2,3];
-  // itemsNew.item.garden_ids.push(itemsNew.item.garden_id);
-  //
-  // console.log(typeof $state.params.id, $state.params.id);
-  // console.log(typeof itemsNew.item.garden_id, itemsNew.item.garden_id);
+  itemsNew.garden_id = parseInt($state.params.id);
+  itemsNew.item.garden_ids.push(itemsNew.garden_id);
+  
   function create() {
     console.log('item: ', itemsNew.item);
     Item.save(itemsNew.item, () => {
