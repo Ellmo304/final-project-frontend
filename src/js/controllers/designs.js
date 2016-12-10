@@ -9,16 +9,32 @@ angular.module('finalProject')
 DesignsNewController.$inject = ['Design', '$state'];
 function DesignsNewController(Design, $state) {
   const designsNew = this;
-  // document.getElementsByTagName("li")
   designsNew.design = {};
   designsNew.design.garden_id = parseInt($state.params.id);
+  designsNew.selectedClass = 'grass';
+  designsNew.myArr = new Array(200);
 
   function create() {
     Design.save(designsNew.design, (design) => {
       $state.go('imagesNew', {id: design.id});
     });
   }
-  designsNew.create = create;
+
+  function setClass(texture) {
+    designsNew.selectedClass = texture;
+  }
+
+  function setTile(index) {
+    console.log(designsNew.selectedClass);
+    const tiles = document.getElementById('designGrid').getElementsByTagName('li');
+    tiles[index].className = `${designsNew.selectedClass}`;
+    console.log(tiles[index]);
+
+
+  }
+  this.setClass = setClass;
+  this.create = create;
+  this.setTile = setTile;
 }
 
 
