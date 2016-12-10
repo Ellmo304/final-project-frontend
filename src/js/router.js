@@ -6,48 +6,58 @@ function Router($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state('usersIndex', {
     url: '/users',
-    templateUrl: '/templates/usersIndex.html',
+    templateUrl: '/templates/users/usersIndex.html',
     controller: 'UsersIndexController as usersIndex'
   })
   .state('usersShow', {
     url: '/users/:id',
-    templateUrl: '/templates/usersShow.html',
+    templateUrl: '/templates/users/usersShow.html',
     controller: 'UsersShowController as usersShow'
   })
   .state('usersEdit', {
     url: '/users/:id/edit',
-    templateUrl: '/templates/usersEdit.html',
+    templateUrl: '/templates/users/usersEdit.html',
     controller: 'UsersEditController as usersEdit'
   })
   .state('gardensNew', {
     url: '/gardens/new',
-    templateUrl: '/templates/gardensNew.html',
+    templateUrl: '/templates/gardens/gardensNew.html',
     controller: 'GardensNewController as gardensNew'
   })
   .state('gardensIndex', {
     url: '/gardens',
-    templateUrl: '/templates/gardensIndex.html',
+    templateUrl: '/templates/gardens/gardensIndex.html',
     controller: 'GardensIndexController as gardensIndex'
   })
   .state('gardensShow', {
     url: '/gardens/:id',
-    templateUrl: '/templates/gardensShow.html',
+    templateUrl: '/templates/gardens/gardensShow.html',
     controller: 'GardensShowController as gardensShow'
   })
   .state('gardensEdit', {
     url: '/gardens/:id/edit',
-    templateUrl: '/templates/gardensEdit.html',
+    templateUrl: '/templates/gardens/gardensEdit.html',
     controller: 'GardensEditController as gardensEdit'
   })
   .state('imagesNew', {
     url: '/gardens/:id/imagesNew',
-    templateUrl: '/templates/imagesNew.html',
+    templateUrl: '/templates/images/imagesNew.html',
     controller: 'ImagesNewController as imagesNew'
   })
   .state('items', {
     url: '/gardens/:id/items',
-    templateUrl: '/templates/itemsNew.html',
+    templateUrl: '/templates/items/itemsNew.html',
     controller: 'ItemsNewController as itemsNew'
+  })
+  .state('itemsIndex', {
+    url: '/items',
+    templateUrl: '/templates/items/itemsIndex.html',
+    controller: 'ItemsIndexController as itemsIndex'
+  })
+  .state('itemsShow', {
+    url: '/items/:id',
+    templateUrl: '/templates/items/itemsShow.html',
+    controller: 'ItemsShowController as itemsShow'
   })
     .state('register', {
       url: '/register',
