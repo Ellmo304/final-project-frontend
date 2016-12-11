@@ -4,8 +4,14 @@
     border: 3px solid grey;
     list-style-type: none;
     height: 600px;
+    max-height: 600px;
     text-align: center;
     margin-bottom: 30px;
+    overflow: auto;
+}
+
+li {
+  list-style-type: none;
 }
 
 

@@ -14,3 +14,5 @@
 <ol id="designGrid" class="grid col-md-11">
   <li ng-repeat="i in designsNew.myArr track by $index" id="{{$index}}" class="grass" ng-click="designsNew.setTile($index)"></li>
 </ol>
+
+<button ng-click="designsNew.create()">Save this design</button>

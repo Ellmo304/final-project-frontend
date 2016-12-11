@@ -17,5 +17,10 @@ function ImagesNewController(Image, $state) {
       $state.reload();
     });
   }
+
+  function addDesign() {
+    $state.go('designsNew', {id: $state.params.id});
+  }
+  imagesNew.addDesign = addDesign;
   imagesNew.create = create;
 }

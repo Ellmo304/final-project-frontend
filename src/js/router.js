@@ -65,7 +65,7 @@ function Router($stateProvider, $urlRouterProvider) {
     controller: 'CommentsIndexController as commentsIndex'
   })
   .state('designsNew', {
-    url: '/designs/new',
+    url: '/gardens/:id/designsNew',
     templateUrl: '/templates/designs/designsNew.html',
     controller: 'DesignsNewController as designsNew'
   })

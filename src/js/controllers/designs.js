@@ -6,17 +6,36 @@ angular.module('finalProject')
 
 
 
-DesignsNewController.$inject = ['Design', '$state'];
-function DesignsNewController(Design, $state) {
+DesignsNewController.$inject = ['Design', 'Tile', 'Garden', '$state'];
+function DesignsNewController(Design, Tile, Garden, $state) {
   const designsNew = this;
   designsNew.design = {};
   designsNew.design.garden_id = parseInt($state.params.id);
+  designsNew.design.name = Garden.get({ id: $state.params.id }) ;
+
   designsNew.selectedClass = 'grass';
   designsNew.myArr = new Array(200);
+  const tiles = document.getElementById('designGrid').getElementsByTagName('li');
+  designsNew.tile = {};
+
+
+  function tilesCreate() {
+    // designsNew.all = Design.query();
+    const x = Garden.get({ id: $state.params.id }, () => {
+      console.log(x.design);
+    });
+    for (let i=0; i < tiles.length; i++) {
+      designsNew.tile.type = tiles[i].className;
+      designsNew.tile.position = tiles[i].id;
+      designsNew.tile.design_id = designsNew.all[designsNew.all.length-1]._id;
+      Tile.save(designsNew.tile);
+    }
+    designsNew.tile = {};
+  }
 
   function create() {
-    Design.save(designsNew.design, (design) => {
-      $state.go('imagesNew', {id: design.id});
+    Design.save(designsNew.design, () => {
+      designsNew.tilesCreate();
     });
   }
 
@@ -25,15 +44,12 @@ function DesignsNewController(Design, $state) {
   }
 
   function setTile(index) {
-    console.log(designsNew.selectedClass);
-    const tiles = document.getElementById('designGrid').getElementsByTagName('li');
+    // console.log(tiles[index].className);
     tiles[index].className = `${designsNew.selectedClass}`;
-    console.log(tiles[index]);
-
-
   }
-  this.setClass = setClass;
+  this.tilesCreate = tilesCreate;
   this.create = create;
+  this.setClass = setClass;
   this.setTile = setTile;
 }
 
@@ -54,7 +70,7 @@ function DesignsShowController(Design, $state, $auth) {
   const designsShow = this;
   this.isLoggedIn = $auth.isAuthenticated;
   designsShow.design = Design.get($state.params);
-  console.log(designsShow.design);
+  // console.log(designsShow.design);
 
   // function isCurrentUser() {
   //   Design.get({ id: ($state.params) }, (design) => {
