@@ -23,6 +23,7 @@
     <p>About: {{ gardensShow.garden.description }}</p>
     <a ng-if="gardensShow.isCurrentUser()" ui-sref="gardensEdit({ id: gardensShow.garden.id })" class="button">Edit</a>
     <button ng-click="gardensShow.deleteGarden()">Delete</button>
+    <button ng-click="gardensShow.showDesign(gardensShow.garden.design.id)">View Design</button>
   </div>
 </section>
 

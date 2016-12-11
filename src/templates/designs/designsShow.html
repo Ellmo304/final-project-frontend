@@ -1,0 +1,12 @@
+<section>
+  <h1>Designs Show</h1>
+      <h2>{{ designsShow.design.name }}</h2>
+      <h2>{{ designsShow.design.garden.id }}</h2>
+
+<ol id="designGrid" class="grid col-md-11">
+  <li ng-repeat="tile in designsShow.design.tiles | orderBy : 'position'" class="{{tile.class_type}}"></li>
+</ol>
+
+
+  <button ng-click="designsShow.deleteItem()">Delete</button>
+</section>

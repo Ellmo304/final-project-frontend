@@ -39,6 +39,10 @@ function GardensShowController(Garden, $state, $auth) {
   gardensShow.garden = Garden.get($state.params);
   console.log(gardensShow.garden);
 
+  function showDesign(id) {
+    $state.go('designsShow', {id: id});
+  }
+
   // function isCurrentUser() {
   //   Garden.get({ id: ($state.params) }, (garden) => {
   //     gardensShow.garden = garden;
@@ -50,6 +54,7 @@ function GardensShowController(Garden, $state, $auth) {
       $state.go('gardensIndex');
     });
   }
+  this.showDesign = showDesign;
   this.deleteGarden = deleteGarden;
 }
 

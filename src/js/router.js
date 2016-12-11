@@ -69,6 +69,16 @@ function Router($stateProvider, $urlRouterProvider) {
     templateUrl: '/templates/designs/designsNew.html',
     controller: 'DesignsNewController as designsNew'
   })
+  .state('designsShow', {
+    url: '/designs/:id',
+    templateUrl: '/templates/designs/designsShow.html',
+    controller: 'DesignsShowController as designsShow'
+  })
+  .state('tilesIndex', {
+    url: '/tiles',
+    templateUrl: '/templates/tilesIndex.html',
+    controller: 'TilesIndexController as tilesIndex'
+  })
     .state('register', {
       url: '/register',
       templateUrl: '/templates/register.html',

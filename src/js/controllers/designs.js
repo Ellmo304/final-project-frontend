@@ -11,26 +11,32 @@ function DesignsNewController(Design, Tile, Garden, $state) {
   const designsNew = this;
   designsNew.design = {};
   designsNew.design.garden_id = parseInt($state.params.id);
-  designsNew.design.name = Garden.get({ id: $state.params.id }) ;
+  designsNew.design.name = null;
+  let designId = null;
 
   designsNew.selectedClass = 'grass';
   designsNew.myArr = new Array(200);
   const tiles = document.getElementById('designGrid').getElementsByTagName('li');
   designsNew.tile = {};
 
+  Garden.get({ id: $state.params.id }, (garden) => {
+    designsNew.design.name = garden.title;
+  });
+
+
 
   function tilesCreate() {
-    // designsNew.all = Design.query();
-    const x = Garden.get({ id: $state.params.id }, () => {
-      console.log(x.design);
+    Garden.get({ id: $state.params.id }, (garden) => {
+      designId = garden.design.id;
+      for (let i=0; i < tiles.length; i++) {
+        designsNew.tile = {};
+        designsNew.tile.class_type = tiles[i].className;
+        designsNew.tile.position = tiles[i].id;
+        designsNew.tile.design_id = designId;
+        Tile.save(designsNew.tile);
+      }
+      $state.go('gardensIndex');
     });
-    for (let i=0; i < tiles.length; i++) {
-      designsNew.tile.type = tiles[i].className;
-      designsNew.tile.position = tiles[i].id;
-      designsNew.tile.design_id = designsNew.all[designsNew.all.length-1]._id;
-      Tile.save(designsNew.tile);
-    }
-    designsNew.tile = {};
   }
 
   function create() {
