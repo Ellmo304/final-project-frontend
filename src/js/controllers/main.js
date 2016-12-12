@@ -7,6 +7,7 @@ function MainController($auth, $state, $rootScope) {
 
   main.isLoggedIn = $auth.isAuthenticated;
   main.message = null;
+  main.currentUser = $auth.getPayload().id;
 
   function logout() {
     $auth.logout()
@@ -14,6 +15,7 @@ function MainController($auth, $state, $rootScope) {
       $state.go('usersIndex');
     });
   }
+
 
   const protectedStates = ['usersEdit'];
 

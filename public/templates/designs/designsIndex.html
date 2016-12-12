@@ -1,0 +1,14 @@
+<section>
+
+  <h1>Designs Show</h1>
+
+  <section ng-repeat="design in designsIndex.all">
+      <h2>{{ design.name }}</h2>
+      <h2>{{ design.garden.id }}</h2>
+<div class="col-md-4">
+<ol id="indexGrid" class="indexGrid col-md-12" style="padding: 15px;">
+  <li ng-repeat="tile in design.tiles | orderBy : 'position'" class="{{tile.class_type}}"></li>
+</ol>
+</div>
+</section>
+</section>

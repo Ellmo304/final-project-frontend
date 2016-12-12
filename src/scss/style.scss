@@ -63,3 +63,19 @@ li {
   width: 50px;
   height: 50px;
 }
+
+
+.indexGrid > li {
+  width: 15px;
+  height: 15px;
+  border: 1px solid black;
+  display: inline-block;
+  list-style-type: none;
+  padding: 0;
+  // margin-bottom: -8px;
+
+}
+
+.indexGrid {
+  max-width: 340px;
+}
