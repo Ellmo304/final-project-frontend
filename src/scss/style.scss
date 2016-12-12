@@ -1,13 +1,45 @@
 
 .gardenBox {
-    padding: 30px;
-    border: 3px solid grey;
-    list-style-type: none;
-    height: 600px;
-    max-height: 600px;
-    text-align: center;
-    margin-bottom: 30px;
-    overflow: auto;
+  padding: 30px;
+  border: 3px solid grey;
+  list-style-type: none;
+  height: 600px;
+  max-height: 600px;
+  text-align: center;
+  margin-bottom: 30px;
+  overflow: auto;
+}
+
+.indexBox {
+  padding: 30px;
+  border: 3px solid grey;
+  list-style-type: none;
+  height: 400px;
+  max-height: 600px;
+  text-align: center;
+  margin-bottom: 30px;
+  overflow: auto;
+  img{
+    height: 195px;
+  }
+}
+
+.itemBox {
+  padding: 10px;
+  border: 3px solid grey;
+  list-style-type: none;
+  height: 100px;
+  max-height: 100px;
+  text-align: center;
+  margin-bottom: 30px;
+  overflow: auto;
+  div {
+    float: left;
+    background-size: cover;
+    margin: 0 auto;
+    width: 75px;
+    height:75px;
+  }
 }
 
 #myNav {
@@ -20,10 +52,10 @@
 }
 
 .circle {
-    border-radius: 50%;
-    margin-right: 15px;
-    // margin-top: -15px;
-    // float: left;
+  border-radius: 50%;
+  margin-right: 15px;
+  // margin-top: -15px;
+  // float: left;
 }
 
 li {
@@ -48,34 +80,42 @@ li {
 
 .grass {
   background-image: url('http://www.freetexturesdownload.com/image/Grass-Free-Textures-15015.jpg');
-  width: 50px;
-  height: 50px;
+  width: 100%;
+  height: 100%;
 }
 
 .soil {
   background-image: url('http://previewcf.turbosquid.com/Preview/Content_2009_07_13__19_04_42/grnd19.png41d4d797-ce09-4a5a-b1e5-8db383f31d3fLarger.jpg');
-  width: 50px;
-  height: 50px;
+  width: 100%;
+  height: 100%;
 }
 
 .paving {
   background-image: url('http://catalystarchitecture.com/pdc/YC_100_CD/09_base_plans/CADD_Files_civil_as-built/Sitework.Paving%20-%20Surfacing.Pavers.Terra%20Cotta.bump.jpg');
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
 }
 
 
 .indexGrid > li {
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   border: 1px solid black;
   display: inline-block;
+  line-height: 5px;
   list-style-type: none;
-  padding: 0;
+  padding: 0px;
+  margin: 0px;
+  // margin-bottom: -30px;
+
   // margin-bottom: -8px;
 
 }
 
 .indexGrid {
-  max-width: 340px;
+  font-size: 0;
+  padding: 0px;
+  margin: 0px;
+  max-width: 360px;
+  max-height: 100px;
 }

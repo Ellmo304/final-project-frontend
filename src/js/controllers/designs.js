@@ -76,19 +76,17 @@ function DesignsShowController(Design, $state, $auth) {
   const designsShow = this;
   this.isLoggedIn = $auth.isAuthenticated;
   designsShow.design = Design.get($state.params);
-  // console.log(designsShow.design);
 
-  // function isCurrentUser() {
-  //   Design.get({ id: ($state.params) }, (design) => {
-  //     designsShow.design = design;
-  //   });
-  //   return designsShow.design.user.id === $auth.getPayload().id;
-  // }
+  function isCurrentUser() {
+    return designsShow.design.user.id === $auth.getPayload().id;
+  }
+
   function deleteDesign() {
     designsShow.design.$remove(() => {
       $state.go('designsIndex');
     });
   }
+  this.isCurrentUser = isCurrentUser;
   this.deleteDesign = deleteDesign;
 }
 

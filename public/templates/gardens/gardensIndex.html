@@ -1,18 +1,18 @@
 <section>
-  <h1>Gardens Index</h1>
+  <h1>myGardens</h1>
   <ul>
-    <li class="col-md-4" ng-repeat="garden in gardensIndex.all">
-      <div class="gardenBox col-md-12" style="padding:15px;">
+    <li class="col-md-4" ng-repeat="garden in gardensIndex.all | orderBy: 'id':true">
+      <div class="indexBox col-md-12" style="padding:15px;">
       <img class="circle" style="width: 60px; height: 60px; float:left; " ng-src="{{garden.user.image}}">
-      <h4 style="float:left;">{{ garden.user.username }}</h4>
+      <a ui-sref="usersShow({ id: garden.user.id})"><h4 style="float:left;">{{ garden.user.username }}</h4></a>
        <br>
       <a ui-sref="gardensShow({ id: garden.id })">
       <br><h2>{{ garden.title }}</h2>
 
-       <img class="mainImg" style="width: 200px;" ng-src="{{garden.images[0].url}}" alt="Description" />
+       <img class="mainImg" style="width: 270px;" ng-src="{{garden.images[0].url}}" alt="Description" />
 <br>
 
-      <!-- <h4>{{ garden.description }}</h4> -->
+      <h4>Rating: {{ garden.rating }}</h4>
     </a>
   </div>
     </li>

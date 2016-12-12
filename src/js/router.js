@@ -95,5 +95,5 @@ function Router($stateProvider, $urlRouterProvider) {
       controller: 'LoginController as login'
     });
 
-  $urlRouterProvider.otherwise('/users');
+  $urlRouterProvider.otherwise('/gardens');
 }

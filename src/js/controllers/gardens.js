@@ -51,6 +51,9 @@ function GardensShowController(Garden, $state, $auth) {
       $state.go('gardensIndex');
     });
   }
+
+
+
   this.isCurrentUser = isCurrentUser;
   this.showDesign = showDesign;
   this.deleteGarden = deleteGarden;

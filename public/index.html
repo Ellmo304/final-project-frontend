@@ -15,8 +15,8 @@
   <div class="container" >
     <a class="navbar-brand" href="/">myGarden</a>
     <ul class="nav navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" ui-sref="usersShow({ id: main.currentUser })">My Profile <span class="sr-only">(current)</span></a>
+      <li ng-if="main.isLoggedIn()" class="nav-item active">
+        <a class="nav-link" ui-sref="gardensNew">Upload Garden <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" ui-sref="gardensIndex">Browse Gardens <span class="sr-only">(current)</span></a>
@@ -25,9 +25,11 @@
         <a class="nav-link" ui-sref="itemsIndex">Browse Items <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" ui-sref="designsIndex">Latest myGarden Designs<span class="sr-only">(current)</span></a>
+        <a class="nav-link" ui-sref="designsIndex">Browse Designs<span class="sr-only">(current)</span></a>
       </li>
-
+      <li ng-if="main.isLoggedIn()" class="nav-item active">
+        <a class="nav-link" ui-sref="usersShow({ id: main.currentUser })">My Profile <span class="sr-only">(current)</span></a>
+      </li>
       <li ng-if="!main.isLoggedIn()" class="nav-item">
         <a class="nav-link" ui-sref="login">Login</a>
       </li>
