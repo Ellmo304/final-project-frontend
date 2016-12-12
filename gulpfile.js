@@ -3,13 +3,13 @@ const plumber = require('gulp-plumber');
 const del = require('del');
 const nodemon = require('gulp-nodemon');
 const bower = require('main-bower-files')(
-  {
-    overrides: {
-      bootstrap: {
-        main: ['./dist/js/bootstrap.min.js', './dist/css/bootstrap.min.css']
-      }
-    }
-  }
+  // {
+  //   overrides: {
+  //     bootstrap: {
+  //       main: ['./dist/js/bootstrap.min.js', './dist/css/bootstrap.min.css']
+  //     }
+  //   }
+  // }
 );
 const filter = require('gulp-filter');
 const concat = require('gulp-concat');
