@@ -12,7 +12,7 @@ function CommentsNewController(Comment, $state, $auth) {
   commentsNew.comment = {};
 
   commentsNew.comment.garden_id = parseInt($state.params.id);
-  commentsNew.comment.user_id = parseInt($auth.getPayload().id) ;
+  commentsNew.comment.user_id = parseInt($auth.getPayload().id);
   function create() {
     console.log('comment: ', commentsNew.comment);
     Comment.save(commentsNew.comment, () => {
