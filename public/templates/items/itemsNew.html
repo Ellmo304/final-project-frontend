@@ -3,6 +3,7 @@
   <h2>Add a new Item</h2>
   <form ng-submit="itemsNew.create()">
     <div class="twelve columns">
+      <label>Item Type</label>
       <select ng-model="itemsNew.item.item_type">
         <option value="Plant">Plant</option>
         <option ng-model="itemsNew.item.item_type" value="Material">Material</option>
@@ -25,9 +26,9 @@
     </div>
     <button>Add Item</button>
   </form>
-  <button ui-sref="gardensIndex">Post Garden!</button>
+  <button ui-sref="gardensIndex">Finish</button>
 
-  <h2>Search Amazon for your Item!</h2>
+  <h2>Search Amazon for your Item:</h2>
 
   <form ng-submit="itemsNew.searchAmazon()">
     <input type="text" name="searchTerm" ng-model="itemsNew.searchTerm">
@@ -58,7 +59,7 @@
 
 
 
-<h2>Add an Existing Item</h2>
+<h2>Or Add an Existing Item:</h2>
 
 <section ng-controller="ItemsIndexController as itemsIndex">
   <ul>

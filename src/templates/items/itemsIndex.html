@@ -2,19 +2,19 @@
   <h1>myGardens Items</h1>
   <ul>
 
-    <div class="col-md-4"  ng-repeat="item in itemsIndex.all | orderBy: 'id':true">
+    <div class="col-md-4"  ng-repeat="item in itemsIndex.all | orderBy: 'id'">
       <li class="itemBox col-md-12" style="padding: 10px;">
-      <a ui-sref="itemsShow({ id: item.id })">
-      <div style="background-image: url({{item.image}});" alt="Description"></div>
+        <a ui-sref="itemsShow({ id: item.id })">
+          <div style="background-image: url({{item.image}});" alt="Description"></div>
+          <h5 style="float: right; margin-top: -3px;">{{ item.price }}</h5>
 
-        <h3 style="margin-top: 5px;">{{ item.name }}</h3>
-        <!-- <h4>{{ item.description }}</h4> -->
-        <h5>{{ item.price }}</h5>
-        <!-- <h5>Appears in these gardens: </h5>
-        <p ng-repeat="garden in item.gardens">{{ garden.title }}</p> -->
-      </a>
-    </li>
-  </div>
+          <h3 style="margin-top: 5px;">{{ item.name }}</h3>
+          <!-- <h4>{{ item.description }}</h4> -->
+          <!-- <h5>Appears in these gardens: </h5>
+          <p ng-repeat="garden in item.gardens">{{ garden.title }}</p> -->
+        </a>
+      </li>
+    </div>
 
   </ul>
 </section>
