@@ -37,7 +37,10 @@ function GardensShowController(Garden, $state, $auth, Comment, Item) {
   const gardensShow = this;
   // const commentsAll = Comment.query();
   this.isLoggedIn = $auth.isAuthenticated;
-  gardensShow.garden = Garden.get($state.params);
+  Garden.get($state.params, (garden) => {
+    gardensShow.garden = garden;
+    getGardenRating(garden);
+  });
   // console.log(gardensShow.garden);
 
   function showDesign(id) {
@@ -67,7 +70,7 @@ function GardensShowController(Garden, $state, $auth, Comment, Item) {
 
   function removeItem(item) {
     Item.get(item, (thisItem) => {
-      var index = thisItem.garden_ids.indexOf(parseInt($state.params.id));
+      const index = thisItem.garden_ids.indexOf(parseInt($state.params.id));
       thisItem.garden_ids.splice(index, 1);
       thisItem.$update();
       gardensShow.garden.$update();
@@ -75,6 +78,11 @@ function GardensShowController(Garden, $state, $auth, Comment, Item) {
     });
   }
 
+  function getGardenRating(garden) {
+    console.log(garden.comments);
+  }
+
+  this.gardenRating = 0;
   this.removeItem = removeItem;
   this.isCommentPoster = isCommentPoster;
   this.destroyComment = destroyComment;
@@ -86,8 +94,8 @@ function GardensShowController(Garden, $state, $auth, Comment, Item) {
 
 
 
-GardensEditController.$inject = ['Garden', '$state'];
-function GardensEditController(Garden, $state) {
+GardensEditController.$inject = ['Garden', '$state', 'Image'];
+function GardensEditController(Garden, $state, Image) {
   const gardensEdit = this;
   gardensEdit.garden = Garden.get($state.params);
 
@@ -96,5 +104,16 @@ function GardensEditController(Garden, $state) {
       $state.go('gardensShow', $state.params);
     });
   }
+
+  function deleteImage(image) {
+    Image.get({id: image.id}, (thisImage) => {
+      thisImage.$remove(() => {
+        gardensEdit.garden.$update();
+        $state.reload();
+      });
+    });
+  }
+
+  this.deleteImage = deleteImage;
   gardensEdit.update = update;
 }

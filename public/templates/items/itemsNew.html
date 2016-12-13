@@ -1,4 +1,6 @@
 <section class="row" ng-controller="ItemsNewController as itemsNew">
+
+  <h2>Add a new Item</h2>
   <form ng-submit="itemsNew.create()">
     <div class="twelve columns">
       <select ng-model="itemsNew.item.item_type">
@@ -24,13 +26,53 @@
     <button>Add Item</button>
   </form>
   <button ui-sref="gardensIndex">Post Garden!</button>
+
+  <h2>Search Amazon for your Item!</h2>
+
+  <form ng-submit="itemsNew.searchAmazon()">
+    <input type="text" name="searchTerm" ng-model="itemsNew.searchTerm">
+    <button>Search Amazon</button>
+  </form>
+
+  <h2 ng-if="itemsNew.displayedResults.length > 0">Search Results:</h2>
+
+  <ul>
+    <div class="col-md-6"  ng-repeat="item in itemsNew.displayedResults">
+      <li class="itemBox col-md-12" style="height: 100px; padding: 10px;">
+
+          <div style="background-image: url({{item.image}});" alt="Description"></div>
+          <button style="float: right;" ng-click="itemsNew.createNew(item)">Add</button>
+          <select ng-model="item.item_type">
+            <option value="Plant">Plant</option>
+            <option ng-model="item.item_type" value="Material">Material</option>
+          </select>
+          <h5>{{ item.price }}</h5>
+          <h3 style="margin-top: 5px;">{{ item.name }}</h3>
+      </li>
+    </div>
+  </ul>
+
 </section>
+
+
+
+
+
+<h2>Add an Existing Item</h2>
 
 <section ng-controller="ItemsIndexController as itemsIndex">
-  <div class="gardenBox">
-    <ul>
-      <li ng-repeat="item in itemsIndex.all">{{item.name}}<button ng-click="itemsIndex.addItem(item)">Add</button></li>
-    </ul>
+  <ul>
+    <div class="col-md-6"  ng-repeat="item in itemsIndex.all">
+      <li class="itemBox col-md-12" style="height: 100px; padding: 10px;">
 
-  </div>
-</section>
+        <a ui-sref="itemsShow({ id: item.id })">
+          <div style="background-image: url({{item.image}});" alt="Description"></div>  </a>
+          <button style="float: right;" ng-click="itemsIndex.addItem(item)">Add</button>
+          <a ui-sref="itemsShow({ id: item.id })">
+            <h5>{{ item.price }}</h5>
+            <h3 style="margin-top: 5px;">{{ item.name }}</h3>
+          </a>
+        </li>
+      </div>
+    </ul>
+  </section>

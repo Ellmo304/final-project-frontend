@@ -15,6 +15,9 @@
 
   <h2>Edit this Garden's Images</h2>
   <ul>
-    <li ng-repeat="image in gardensEdit.garden.images"> <img style="width: 500px" ng-src="{{image.url}}"/></li>
+    <li ng-repeat="image in gardensEdit.garden.images"> <button ng-click="gardensEdit.deleteImage(image)">Delete this image</button>  <img style="width: 500px" ng-src="{{image.url}}"/></li>
   </ul>
 </section>
+
+
+<button ui-sref="imagesNew({id: gardensEdit.garden.id})">Add new image/s for this garden</button>
