@@ -14,6 +14,8 @@ function ItemsNewController(Item, $state) {
   itemsNew.searchTerm = null;
 
   function searchAmazon() {
+    itemsNew.displayedResults = [];
+    itemsNew.itemsSearched = null;
     Item.search({query: itemsNew.searchTerm }).$promise.then((data) => {
       itemsNew.itemsSearched = data.ItemSearchResponse.Items.Item;
       for (let i = 0; i < itemsNew.itemsSearched.length; i++) {
@@ -29,6 +31,7 @@ function ItemsNewController(Item, $state) {
 
   function createNew(item) {
     item.garden_ids = [];
+    item.item_type = itemsNew.item_type;
     item.garden_ids.push(parseInt($state.params.id));
     Item.save(item, () => {
       $state.reload();
@@ -47,6 +50,7 @@ function ItemsNewController(Item, $state) {
       $state.reload();
     });
   }
+
   itemsNew.create = create;
 }
 

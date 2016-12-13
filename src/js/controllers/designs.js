@@ -30,7 +30,6 @@ function DesignsNewController(Design, Tile, Garden, $state) {
       designId = garden.design.id;
       for (let i=0; i < tiles.length; i++) {
         designsNew.tile = {};
-        // designsNew.tile.position = tiles.indexOf(tiles[i]);
         designsNew.tile.class_type = tiles[i].className;
         designsNew.tile.position = tiles[i].id;
         designsNew.tile.design_id = designId;
@@ -51,7 +50,7 @@ function DesignsNewController(Design, Tile, Garden, $state) {
   }
 
   function setTile(index) {
-    // console.log(tiles[index].className);
+    console.log(tiles[index].className);
     tiles[index].className = `${designsNew.selectedClass}`;
   }
   this.tilesCreate = tilesCreate;

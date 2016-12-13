@@ -42,9 +42,9 @@
 
           <div style="background-image: url({{item.image}});" alt="Description"></div>
           <button style="float: right;" ng-click="itemsNew.createNew(item)">Add</button>
-          <select ng-model="item.item_type">
+          <select ng-model="itemsNew.item_type">
             <option value="Plant">Plant</option>
-            <option ng-model="item.item_type" value="Material">Material</option>
+            <option ng-model="itemsNew.item_type" value="Material">Material</option>
           </select>
           <h5>{{ item.price }}</h5>
           <h3 style="margin-top: 5px;">{{ item.name }}</h3>
