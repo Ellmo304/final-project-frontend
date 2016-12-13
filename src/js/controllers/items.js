@@ -14,7 +14,7 @@ function ItemsNewController(Item, $state) {
   itemsNew.item.garden_ids = [];
   itemsNew.garden_id = parseInt($state.params.id);
   itemsNew.item.garden_ids.push(itemsNew.garden_id);
-  
+
   function create() {
     console.log('item: ', itemsNew.item);
     Item.save(itemsNew.item, () => {
@@ -27,10 +27,20 @@ function ItemsNewController(Item, $state) {
 
 
 
-ItemsIndexController.$inject = ['Item'];
-function ItemsIndexController(Item) {
+ItemsIndexController.$inject = ['Item', 'Garden', '$state'];
+function ItemsIndexController(Item, Garden, $state) {
   const itemsIndex = this;
   itemsIndex.all = Item.query();
+
+  function addItem(item) {
+    console.log(item);
+    Garden.get($state.params, (garden) => {
+      console.log(garden);
+      item.garden_ids.push(garden.id);
+      item.$update();
+    }
+);}
+  this.addItem = addItem;
 }
 
 

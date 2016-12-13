@@ -37,7 +37,7 @@ function GardensShowController(Garden, $state, $auth) {
   const gardensShow = this;
   this.isLoggedIn = $auth.isAuthenticated;
   gardensShow.garden = Garden.get($state.params);
-  console.log(gardensShow.garden);
+  // console.log(gardensShow.garden);
 
   function showDesign(id) {
     $state.go('designsShow', {id: id});

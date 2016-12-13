@@ -35,7 +35,7 @@ function DesignsNewController(Design, Tile, Garden, $state) {
         designsNew.tile.design_id = designId;
         Tile.save(designsNew.tile);
       }
-      $state.go('gardensIndex');
+      $state.go('itemsNew', {id: $state.params.id});
     });
   }
 

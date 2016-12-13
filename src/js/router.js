@@ -44,15 +44,15 @@ function Router($stateProvider, $urlRouterProvider) {
     templateUrl: '/templates/images/imagesNew.html',
     controller: 'ImagesNewController as imagesNew'
   })
-  .state('items', {
-    url: '/gardens/:id/items',
-    templateUrl: '/templates/items/itemsNew.html',
-    controller: 'ItemsNewController as itemsNew'
-  })
   .state('itemsIndex', {
     url: '/items',
     templateUrl: '/templates/items/itemsIndex.html',
     controller: 'ItemsIndexController as itemsIndex'
+  })
+  .state('itemsNew', {
+    url: '/gardens/:id/items/new',
+    templateUrl: '/templates/items/itemsNew.html'
+    // controller: 'ItemsNewController as itemsNew'
   })
   .state('itemsShow', {
     url: '/items/:id',

@@ -1,4 +1,4 @@
-<section class="row">
+<section class="row" ng-controller="ItemsNewController as itemsNew">
   <form ng-submit="itemsNew.create()">
     <div class="twelve columns">
       <select ng-model="itemsNew.item.item_type">
@@ -21,6 +21,16 @@
       <input type="text" name="image" placeholder="Image Url" ng-model="itemsNew.item.image" class="u-full-width">
 
     </div>
-    <button>Update</button>
+    <button>Add Item</button>
   </form>
+  <button ui-sref="gardensIndex">Post Garden!</button>
+</section>
+
+<section ng-controller="ItemsIndexController as itemsIndex">
+  <div class="gardenBox">
+    <ul>
+      <li ng-repeat="item in itemsIndex.all">{{item.name}}<button ng-click="itemsIndex.addItem(item)">Add</button></li>
+    </ul>
+
+  </div>
 </section>
