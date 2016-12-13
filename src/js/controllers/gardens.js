@@ -32,9 +32,10 @@ function GardensIndexController(Garden) {
 
 
 
-GardensShowController.$inject = ['Garden', '$state', '$auth'];
-function GardensShowController(Garden, $state, $auth) {
+GardensShowController.$inject = ['Garden', '$state', '$auth', 'Comment', 'Item'];
+function GardensShowController(Garden, $state, $auth, Comment, Item) {
   const gardensShow = this;
+  // const commentsAll = Comment.query();
   this.isLoggedIn = $auth.isAuthenticated;
   gardensShow.garden = Garden.get($state.params);
   // console.log(gardensShow.garden);
@@ -46,14 +47,37 @@ function GardensShowController(Garden, $state, $auth) {
   function isCurrentUser() {
     return gardensShow.garden.user.id === $auth.getPayload().id;
   }
+
   function deleteGarden() {
     gardensShow.garden.$remove(() => {
       $state.go('gardensIndex');
     });
   }
 
+  function destroyComment(comment) {
+    Comment.get(comment, (thiscomment) => {
+      thiscomment.$remove();
+      $state.reload();
+    });
+  }
 
+  function isCommentPoster(comment) {
+    return comment.user_id === $auth.getPayload().id;
+  }
 
+  function removeItem(item) {
+    Item.get(item, (thisItem) => {
+      var index = thisItem.garden_ids.indexOf(parseInt($state.params.id));
+      thisItem.garden_ids.splice(index, 1);
+      thisItem.$update();
+      gardensShow.garden.$update();
+      $state.reload();
+    });
+  }
+
+  this.removeItem = removeItem;
+  this.isCommentPoster = isCommentPoster;
+  this.destroyComment = destroyComment;
   this.isCurrentUser = isCurrentUser;
   this.showDesign = showDesign;
   this.deleteGarden = deleteGarden;

@@ -1,4 +1,5 @@
 <section class="row">
+  <h2>Edit this Garden's Info</h2>
   <form ng-submit="gardensEdit.update()">
     <div class="twelve columns">
       <label>Title</label>
@@ -8,4 +9,12 @@
     </div>
     <button>Update</button>
   </form>
+</section>
+
+<section class="row">
+
+  <h2>Edit this Garden's Images</h2>
+  <ul>
+    <li ng-repeat="image in gardensEdit.garden.images"> <img style="width: 500px" ng-src="{{image.url}}"/></li>
+  </ul>
 </section>

@@ -1,15 +1,21 @@
 <h1>Create a new Garden Design!</h1>
 
 <div class="col-md-1">
-  <div class="grass" ng-click="designsNew.setClass('grass')">
+  <div style="height: 50px; width: 50px; display: block;" class="grass" ng-click="designsNew.setClass('grass')">
   </div>
   <h6>Turf</h6>
-  <div class="soil" ng-click="designsNew.setClass('soil')">
+  <div style="height: 50px; width: 50px; display: block;" class="soil" ng-click="designsNew.setClass('soil')">
   </div>
   <h6>Soil</h6>
-  <div class="paving" ng-click="designsNew.setClass('paving')">
+  <div style="height: 50px; width: 50px; display: block;" class="paving" ng-click="designsNew.setClass('paving')">
   </div>
   <h6>Paving</h6>
+  <div style="height: 50px; width: 50px; display: block;" class="decking" ng-click="designsNew.setClass('decking')">
+  </div>
+  <h6>Decking</h6>
+  <div style="height: 50px; width: 50px; display: block;" class="water" ng-click="designsNew.setClass('water')">
+  </div>
+  <h6>Water</h6>
 </div>
 <ol id="designGrid" class="grid col-md-11">
   <li ng-repeat="i in designsNew.myArr track by $index" id="{{$index}}" class="grass" ng-click="designsNew.setTile($index)"></li>

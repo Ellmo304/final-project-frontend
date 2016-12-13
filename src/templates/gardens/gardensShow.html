@@ -5,7 +5,9 @@
       <h3>Plants</h3>
       <hr>
       <ul>
-        <li ng-repeat="item in gardensShow.garden.items | filter : 'Plant' : comparator : 'item_type'"><a ui-sref="itemsShow({ id: item.id })"><img style="width: 100px;" ng-src="{{item.image}}"><h6>{{ item.name }}  {{ item.price }}</h6></a></li>
+        <li ng-repeat="item in gardensShow.garden.items | filter : 'Plant' : comparator : 'item_type'">
+          <button ng-if="gardensShow.isCurrentUser()" ng-click="gardensShow.removeItem(item)" style="float: right;">X</button>
+          <a ui-sref="itemsShow({ id: item.id })"><img style="width: 100px;" ng-src="{{item.image}}"><h6>{{ item.name }}  {{ item.price }}</h6></a></li>
         <hr>
       </ul>
     </div>
@@ -13,7 +15,9 @@
       <h3>Materials</h3>
       <hr>
       <ul>
-        <li ng-repeat="item in gardensShow.garden.items | filter : 'Material' : comparator : 'item_type'"><a ui-sref="itemsShow({ id: item.id })"><img style="width: 100px;" ng-src="{{item.image}}"><h6>{{ item.name }}  {{ item.price }}</h6></a> </li>
+        <li ng-repeat="item in gardensShow.garden.items | filter : 'Material' : comparator : 'item_type'">
+          <button ng-if="gardensShow.isCurrentUser()" ng-click="gardensShow.removeItem(item)" style="float: right;">X</button>
+          <a ui-sref="itemsShow({ id: item.id })"><img style="width: 100px;" ng-src="{{item.image}}"><h6>{{ item.name }}  {{ item.price }}</h6></a> </li>
         <hr>
       </ul>
     </div>
@@ -67,6 +71,9 @@
     <hr>
   </div>
   <ul ng-controller="GardensShowController as gardensShow">
-    <li ng-repeat="comment in gardensShow.garden.comments"><h6>{{ comment.body }} <strong>{{ comment.rating }}/5</strong></h6> <p style="font-size: 14px;"><em> Posted by: {{ comment.user.username }} On: {{comment.date}} </em></p><hr></li>
+    <li ng-repeat="comment in gardensShow.garden.comments">
+      <img class="circle" style="float: left;" ng-src="comment.user.image">
+      <button ng-if="gardensShow.isCommentPoster(comment)" ng-click="gardensShow.destroyComment(comment)" style="float: right;">X</button>
+      <h6>{{ comment.body }} <strong>{{ comment.rating }}/5</strong></h6> <p style="font-size: 14px;"><em> Posted by: {{ comment.user.username }} On: {{comment.date}} </em></p><hr></li>
   </ul>
 </div>
