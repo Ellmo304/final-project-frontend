@@ -47,6 +47,7 @@
     <br>
     <br>
     <hr>
+    <h5>Average User Rating: {{gardensShow.gardenRating}}</h5>
 
     <p>About: {{ gardensShow.garden.description }}</p>
     <button ng-if="gardensShow.isCurrentUser()"><a ui-sref="gardensEdit({ id: gardensShow.garden.id })" class="button">Edit</a></button>

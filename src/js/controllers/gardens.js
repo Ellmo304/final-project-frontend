@@ -77,11 +77,13 @@ function GardensShowController(Garden, $state, $auth, Comment, Item) {
       $state.reload();
     });
   }
-
   function getGardenRating(garden) {
-    console.log(garden.comments);
+    for (let i = 0; i < garden.comments.length; i++) {
+      gardensShow.sum += garden.comments[i].rating;
+    }
+    gardensShow.gardenRating = Math.floor(gardensShow.sum / garden.comments.length);
   }
-
+  gardensShow.sum = 0;
   this.gardenRating = 0;
   this.removeItem = removeItem;
   this.isCommentPoster = isCommentPoster;
