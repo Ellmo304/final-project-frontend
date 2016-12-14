@@ -77,16 +77,23 @@ li {
 
 .grid > li {
   width: 49px;
+  word-break: break-all;
+  overflow: hidden;
   height: 49px;
   border: 1px solid black;
   display: inline-block;
   list-style-type: none;
   padding: 0;
   margin-bottom: -8px;
+  img {
+    height: 100%;
+    width: 100%;
+  }
 
 }
 
 .grid {
+  overflow: hidden;
   max-width: 1060px;
 }
 
@@ -114,6 +121,20 @@ li {
 }
 
 
+#slides_control > div{
+  height: 200px;
+}
+img{
+  margin:auto;
+  width: 400px;
+}
+#slides_control {
+  position:absolute;
+  width: 400px;
+  left:50%;
+  top:20px;
+ margin-left:-200px;
+}
 
 
 
@@ -121,6 +142,7 @@ li {
 
 
 
+/// classes for garden design textures-------------------------------------------------------------------------------------------
 
 .grass {
   background-image: url('http://www.freetexturesdownload.com/image/Grass-Free-Textures-15015.jpg');
@@ -151,3 +173,47 @@ li {
   width: 100%;
   height: 100%;
 }
+
+.stones {
+  background-image: url('http://www.freetexturesdownload.com/image/Stones-Free-Textures-1451.jpg');
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.shrub {
+  background-image: url('http://www.hslandscaping.com/images/serv-shrub.png');
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.tree {
+  background-image: url('http://vignette1.wikia.nocookie.net/farmville2/images/5/5b/Willow_Tree.png/revision/latest?cb=20121011130840');
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.flowers {
+  background-image: url('http://roelse.us/rlc/center/flower5.png');
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.hedge {
+
+  background-image: url('http://vignette2.wikia.nocookie.net/battlenations/images/f/fd/Deco-ShortHedge.png/revision/latest?cb=20121016041944');
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.flowerShrub {
+  background-image: url('http://vterrain.org/Locations/za/fynbos_01_256.png');
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+}
+//---------------------------------------------------------------------------------------------------------------------------

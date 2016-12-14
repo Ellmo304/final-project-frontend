@@ -11,9 +11,9 @@
 
        <img class="mainImg" style="width: 270px;" ng-src="{{garden.images[0].url}}" alt="Description" />
 <br>
+  </a>
+      <h4>Likes: {{garden.likes.length}}</h4> <button ng-click="gardensIndex.like(garden.id)">Like</button>
 
-      <h4>Rating: {{ garden.rating }}</h4>
-    </a>
   </div>
     </li>
   </ul>

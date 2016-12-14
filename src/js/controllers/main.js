@@ -1,8 +1,8 @@
 angular.module('finalProject')
-  .controller('MainController', MainController);
+.controller('MainController', MainController);
 
-MainController.$inject = ['$auth', '$state', '$rootScope'];
-function MainController($auth, $state, $rootScope) {
+MainController.$inject = ['$auth', '$state', '$rootScope', 'Garden'];
+function MainController($auth, $state, $rootScope, Garden) {
   const main = this;
 
   main.isLoggedIn = $auth.isAuthenticated;
@@ -17,18 +17,32 @@ function MainController($auth, $state, $rootScope) {
   }
 
 
+  const protectedPages = ['gardensEdit', 'itemsNew', 'imagesNew', 'designsNew'];
+
+
+  function protectPages(e, toState, toParams) {
+    Garden.get({id: parseFloat(toParams.id)}, (myGarden) => {
+      console.log(myGarden);
+      if((!$auth.isAuthenticated() &&
+      protectedPages.includes(toState.name)) ||
+      (protectedPages.indexOf(toState.name) !== -1) && (parseFloat(myGarden.user.id) !== $auth.getPayload().id)) {
+        e.preventDefault();
+        $state.go('login');
+      } else if ((!$auth.isAuthenticated() &&
+      protectedStates.includes(toState.name)) ||
+      (protectedStates.indexOf(toState.name) !== -1) && (parseFloat(toParams.id) !== $auth.getPayload().id)) {
+        e.preventDefault();
+        $state.go('login');
+      }
+    });
+  }
+
+
   const protectedStates = ['usersEdit'];
 
-  function secureState(e, toState, toParams) {
 
-    if((!$auth.isAuthenticated() &&
-    protectedStates.includes(toState.name)) ||
-    toState.name === 'usersEdit' && (parseFloat(toParams.id) !== $auth.getPayload().id)) {
-      e.preventDefault();
-      $state.go('login');
-    }
-  }
-  $rootScope.$on('$stateChangeStart', secureState);
+
+  $rootScope.$on('$stateChangeStart', protectPages);
 
   main.logout = logout;
 }

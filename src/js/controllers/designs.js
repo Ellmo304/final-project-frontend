@@ -52,7 +52,18 @@ function DesignsNewController(Design, Tile, Garden, $state) {
   function setTile(index) {
     console.log(tiles[index].className);
     tiles[index].className = `${designsNew.selectedClass}`;
+    tiles[index].innerHTML = `<img src=${designsNew.selectedPng}>`;
+    designsNew.selectedPng = 'http://downloads2.esri.com/support/TechArticles/blank256.png';
+    console.log(tiles[index]);
   }
+
+  function setPng(string) {
+    designsNew.selectedPng = string;
+    console.log(designsNew.selectedPng, string);
+  }
+
+  designsNew.selectedPng = 'http://downloads2.esri.com/support/TechArticles/blank256.png';
+  this.setPng = setPng;
   this.tilesCreate = tilesCreate;
   this.create = create;
   this.setClass = setClass;

@@ -1,60 +1,62 @@
 <section ng-controller="GardensShowController as gardensShow">
 
-  <div class="col-md-3" style="padding-right: 0px;">
-    <div class="gardenBox" style="max-height: 350px; margin-bottom: 0px;">
-      <h3>Plants</h3>
+  <div class="col-md-3 gardenBox" style="padding-right: 0px; max-height: 700px;">
+      <h3 ng-click="itemChoice = 1">Plants</h3>
+      <h3 ng-click="itemChoice = 2">Materials</h3>
+
+    <div ng-if="itemChoice != 2" style=" margin-bottom: 0px;">
       <hr>
       <ul>
         <li ng-repeat="item in gardensShow.garden.items | filter : 'Plant' : comparator : 'item_type'">
           <button ng-if="gardensShow.isCurrentUser()" ng-click="gardensShow.removeItem(item)" style="float: right;">X</button>
           <a ui-sref="itemsShow({ id: item.id })"><img style="width: 100px;" ng-src="{{item.image}}"><h6>{{ item.name }}  {{ item.price }}</h6></a></li>
+          <hr>
+          <button ng-if="gardensShow.isCurrentUser()" ui-sref="itemsNew({id: gardensShow.garden.id})">Add Plants to this Garden</button>
+        </ul>
+      </div>
+      <div ng-if="itemChoice === 2" >
         <hr>
-        <button ng-if="gardensShow.isCurrentUser()" ui-sref="itemsNew({id: gardensShow.garden.id})">Add Plants to this Garden</button>
-      </ul>
-    </div>
-    <div class="gardenBox" style="max-height: 350px">
-      <h3>Materials</h3>
-      <hr>
-      <ul>
-        <li ng-repeat="item in gardensShow.garden.items | filter : 'Material' : comparator : 'item_type'">
-          <button ng-if="gardensShow.isCurrentUser()" ng-click="gardensShow.removeItem(item)" style="float: right;">X</button>
-          <a ui-sref="itemsShow({ id: item.id })"><img style="width: 100px;" ng-src="{{item.image}}"><h6>{{ item.name }}  {{ item.price }}</h6></a> </li>
-        <hr>
-      </ul>
-    </div>
-  </div>
-
-
-  <div class="gardenBox col-md-6">
-    <h1>{{ gardensShow.garden.title }}</h1>
-
-
-    <!-- <div ng-controller="MyCarouselController" style="border: solid blue 5px; height: 200px">
-      <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-        <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-          <img ng-src="{{slide.image}}" style="margin:auto;">
-          <div class="carousel-caption">
-            <h4>Slide {{slide.id}}</h4>
-            <p>{{slide.text}}</p>
-          </div>
+        <ul>
+          <li ng-repeat="item in gardensShow.garden.items | filter : 'Material' : comparator : 'item_type'">
+            <button ng-if="gardensShow.isCurrentUser()" ng-click="gardensShow.removeItem(item)" style="float: right;">X</button>
+            <a ui-sref="itemsShow({ id: item.id })"><img style="width: 100px;" ng-src="{{item.image}}"><h6>{{ item.name }}  {{ item.price }}</h6></a> </li>
+            <hr>
+              <button ng-if="gardensShow.isCurrentUser()" ui-sref="itemsNew({id: gardensShow.garden.id})">Add Plants to this Garden</button>
+          </ul>
         </div>
       </div>
-    </div> -->
 
 
+      <div class="gardenBox col-md-6">
+        <h1>{{ gardensShow.garden.title }}</h1>
 
-    <img class="mainImg" style="width: 500px;" ng-src="{{gardensShow.garden.images[0].url}}" alt="Description" />
-    <img class="circle" style="float: left; width: 50px; height: 50px;" ng-src="{{gardensShow.garden.user.image}}"><h4 style="display: inline; float: left;"><a ui-sref="usersShow({id:gardensShow.garden.user.id})">{{ gardensShow.garden.user.username }}</a></h4> <h4 style="display: inline; float: right;">Posted on: {{gardensShow.garden.date}}</h4>
-    <br>
-    <br>
-    <hr>
-    <h5 ng-if="gardensShow.gardenRating">Average User Rating: {{gardensShow.gardenRating}}</h5>
 
-    <p>About: {{ gardensShow.garden.description }}</p>
-    <button ng-if="gardensShow.isCurrentUser()"><a ui-sref="gardensEdit({ id: gardensShow.garden.id })" class="button">Edit</a></button>
-    <button ng-if="gardensShow.isCurrentUser()" ng-click="gardensShow.deleteGarden()">Delete</button>
-    <button ng-click="gardensShow.showDesign(gardensShow.garden.design.id)">View Design</button>
+        <!-- <div ng-controller="MyCarouselController" style="border: solid blue 5px; height: 200px">
+        <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+        <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+        <img ng-src="{{slide.image}}" style="margin:auto;">
+        <div class="carousel-caption">
+        <h4>Slide {{slide.id}}</h4>
+        <p>{{slide.text}}</p>
+      </div>
+    </div>
   </div>
+</div> -->
+
+
+
+<img class="mainImg" style="width: 500px;" ng-src="{{gardensShow.garden.images[0].url}}" alt="Description" />
+<img class="circle" style="float: left; width: 50px; height: 50px;" ng-src="{{gardensShow.garden.user.image}}"><h4 style="display: inline; float: left;"><a ui-sref="usersShow({id:gardensShow.garden.user.id})">{{ gardensShow.garden.user.username }}</a></h4> <h4 style="display: inline; float: right;">Posted on: {{gardensShow.garden.date}}</h4>
+<br>
+<br>
+<hr>
+<h5 ng-if="gardensShow.gardenRating">Average User Rating: {{gardensShow.gardenRating}}</h5>
+
+<p>About: {{ gardensShow.garden.description }}</p>
+<button ng-if="gardensShow.isCurrentUser()"><a ui-sref="gardensEdit({ id: gardensShow.garden.id })" class="button">Edit</a></button>
+<button ng-if="gardensShow.isCurrentUser()" ng-click="gardensShow.deleteGarden()">Delete</button>
+<button ng-click="gardensShow.showDesign(gardensShow.garden.design.id)">View Design</button>
+</div>
 </section>
 
 
@@ -77,5 +79,5 @@
       <img class="circle" style="float: left;" ng-src="comment.user.image">
       <button ng-if="gardensShow.isCommentPoster(comment)" ng-click="gardensShow.destroyComment(comment)" style="float: right;">X</button>
       <h6>{{ comment.body }} <strong>{{ comment.rating }}/5</strong></h6> <p style="font-size: 14px;"><em> Posted by: {{ comment.user.username }} On: {{comment.date}} </em></p><hr></li>
-  </ul>
-</div>
+    </ul>
+  </div>

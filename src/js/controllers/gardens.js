@@ -23,10 +23,26 @@ function GardensNewController(Garden, $state, $auth) {
 
 
 
-GardensIndexController.$inject = ['Garden'];
-function GardensIndexController(Garden) {
+GardensIndexController.$inject = ['Garden', '$auth', '$state'];
+function GardensIndexController(Garden, $auth, $state) {
   const gardensIndex = this;
   gardensIndex.all = Garden.query();
+
+
+  function like(id) {
+    Garden.get({id: id}, (garden) => {
+      const likeUser = ($auth.getPayload().id).toString();
+      if(garden.likes.indexOf(likeUser) === -1) {
+        garden.likes.push(likeUser);
+      }
+      garden.$update();
+    });
+    setTimeout(function(){
+      $state.reload();
+    }, 500);
+  }
+
+  this.like = like;
 }
 
 
@@ -74,9 +90,9 @@ function GardensShowController(Garden, $state, $auth, Comment, Item) {
       thisItem.garden_ids.splice(index, 1);
       thisItem.$update();
       gardensShow.garden.$update();
-      $state.reload();
     });
   }
+
   function getGardenRating(garden) {
     for (let i = 0; i < garden.comments.length; i++) {
       gardensShow.sum += garden.comments[i].rating;
