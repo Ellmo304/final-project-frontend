@@ -56,8 +56,11 @@ function GardensShowController(Garden, $state, $auth, Comment, Item) {
   Garden.get($state.params, (garden) => {
     gardensShow.garden = garden;
     getGardenRating(garden);
+    slideInterval();
   });
-  // console.log(gardensShow.garden);
+
+  var slideInterval = setInterval(nextSlide,8000);
+
 
   function showDesign(id) {
     $state.go('designsShow', {id: id});
@@ -80,6 +83,13 @@ function GardensShowController(Garden, $state, $auth, Comment, Item) {
     });
   }
 
+  function getPoster(post) {
+    Comment.get({id: post}, (comment) => {
+      const author = comment.user.username;
+      return { author };
+    });
+  }
+
   function isCommentPoster(comment) {
     return comment.user_id === $auth.getPayload().id;
   }
@@ -99,6 +109,21 @@ function GardensShowController(Garden, $state, $auth, Comment, Item) {
     }
     gardensShow.gardenRating = Math.floor(gardensShow.sum / garden.comments.length);
   }
+
+  var currentSlide = 0;
+  this.slides = document.querySelectorAll('#slides .slide');
+  console.log(this.slides);
+
+
+
+
+  function nextSlide(){
+    gardensShow.slides[currentSlide].className = 'slide';
+    currentSlide = (currentSlide+1)%gardensShow.slides.length;
+    gardensShow.slides[currentSlide].className = 'slide showing';
+  }
+
+  this.getPoster = getPoster;
   gardensShow.sum = 0;
   this.gardenRating = 0;
   this.removeItem = removeItem;

@@ -61,6 +61,8 @@
 .mainImg {
   margin-top: 15px;
   margin-bottom: 15px;
+  width: 500px;
+  height: 400px;
 }
 
 .circle {
@@ -178,16 +180,16 @@ li {
   height: 100%;
 }
 
-.big {
-  &:before{
-    content: '';
-  width: 300%;
-  height: 300%;
-  position: absolute;
-  top: -100%;
-  left: -100%;
-  }
-}
+// .big {
+//   &:before{
+//     content: '';
+//   width: 300%;
+//   height: 300%;
+//   position: absolute;
+//   top: -100%;
+//   left: -100%;
+//   }
+// }
 
 .shrub {
   background-image: url('http://www.hslandscaping.com/images/serv-shrub.png');
@@ -226,3 +228,36 @@ li {
   height: 100%;
 }
 //---------------------------------------------------------------------------------------------------------------------------
+
+
+/*
+essential styles:
+these make the slideshow work
+*/
+#slides {
+	position: relative;
+	height: 150px;
+	padding: 0px;
+	margin: 30px 0px 30px 0px;
+	list-style-type: none;
+}
+
+.slide {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	z-index: 1;
+
+	-webkit-transition: opacity 4s;
+	-moz-transition: opacity 4s;
+	// -o-transition: opacity 1s;
+	transition: opacity 4s;
+}
+
+.showing{
+	opacity: 1;
+	z-index: 2;
+}

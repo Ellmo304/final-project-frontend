@@ -39,12 +39,10 @@ function CommentsShowController(Comment, $state, $auth) {
   const commentsShow = this;
   this.isLoggedIn = $auth.isAuthenticated;
   commentsShow.comment = Comment.get($state.params);
-  // function isCurrentUser() {
-  //   Comment.get({ id: ($state.params) }, (comment) => {
-  //     commentsShow.comment = comment;
-  //   });
-  //   return commentsShow.comment.user.id === $auth.getPayload().id;
-  // }
+
+
+
+
   function deleteComment() {
     commentsShow.comment.$remove(() => {
       $state.go('commentsIndex');

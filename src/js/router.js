@@ -4,6 +4,10 @@ angular.module('finalProject')
 Router.$inject = ['$stateProvider', '$urlRouterProvider'];
 function Router($stateProvider, $urlRouterProvider) {
   $stateProvider
+  .state('landing', {
+    url: '/',
+    templateUrl: '/templates/landing.html'
+  })
   .state('usersIndex', {
     url: '/users',
     templateUrl: '/templates/users/usersIndex.html',

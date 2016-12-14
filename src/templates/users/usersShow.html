@@ -6,5 +6,5 @@
       <img style="width: 200px;" ng-src="{{usersShow.user.image}}">
       <br>
   <a ng-if="usersShow.isCurrentUser()" ui-sref="usersEdit({ id: usersShow.user.id })" class="button">Edit</a>
-  <button ng-if="usersShow.isCurrentUser()" ng-click="usersShow.delete()">Delete</button>
+  <button ng-if="usersShow.isCurrentUser()" ng-click="usersShow.deleteUser()">Delete</button>
 </section>

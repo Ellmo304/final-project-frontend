@@ -30,22 +30,14 @@
       <div class="gardenBox col-md-6">
         <h1>{{ gardensShow.garden.title }}</h1>
 
-
-        <!-- <div ng-controller="MyCarouselController" style="border: solid blue 5px; height: 200px">
-        <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-        <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-        <img ng-src="{{slide.image}}" style="margin:auto;">
-        <div class="carousel-caption">
-        <h4>Slide {{slide.id}}</h4>
-        <p>{{slide.text}}</p>
-      </div>
-    </div>
-  </div>
-</div> -->
+        <ul id="slides" style="height: 300px; width: 500px;">
+          <li class="slide showing mainImg" style="fixed-height: 300px; fixed-width: 500px; background-size: cover; background-image: url('{{gardensShow.garden.images[0].url}}')"></li>
+          <li class="slide mainImg" style="fixed-height: 300px; fixed-width: 500px; background-size: cover; background-image: url('{{gardensShow.garden.images[1].url}}')"></li>
 
 
+        </ul>
 
-<img class="mainImg" style="width: 500px;" ng-src="{{gardensShow.garden.images[0].url}}" alt="Description" />
+
 <img class="circle" style="float: left; width: 50px; height: 50px;" ng-src="{{gardensShow.garden.user.image}}"><h4 style="display: inline; float: left;"><a ui-sref="usersShow({id:gardensShow.garden.user.id})">{{ gardensShow.garden.user.username }}</a></h4> <h4 style="display: inline; float: right;">Posted on: {{gardensShow.garden.date}}</h4>
 <br>
 <br>
@@ -78,7 +70,7 @@
     <li ng-repeat="comment in gardensShow.garden.comments">
       <img class="circle" style="float: left;" ng-src="comment.user.image">
       <button ng-if="gardensShow.isCommentPoster(comment)" ng-click="gardensShow.destroyComment(comment)" style="float: right;">X</button>
-      <h6>{{ comment.body }} <strong>{{ comment.rating }}/5</strong></h6> <p style="font-size: 14px;"><em> Posted by: {{ comment.user.username }} On: {{comment.date}} </em></p><hr></li>
+      <h6>{{ comment.body }} <strong>{{ comment.rating }}/5</strong></h6> <p style="font-size: 14px;"><em> Posted by: {{comment.user_id}} On: {{comment.date}} </em></p><hr></li>
     </ul>
   </div>
 
