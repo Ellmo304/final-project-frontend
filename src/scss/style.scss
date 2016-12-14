@@ -75,27 +75,7 @@ li {
 }
 
 
-.grid > li {
-  width: 49px;
-  word-break: break-all;
-  overflow: hidden;
-  height: 49px;
-  border: 1px solid black;
-  display: inline-block;
-  list-style-type: none;
-  padding: 0;
-  margin-bottom: -8px;
-  img {
-    height: 100%;
-    width: 100%;
-  }
 
-}
-
-.grid {
-  overflow: hidden;
-  max-width: 1060px;
-}
 
 .indexGrid > li {
   width: 14px;
@@ -106,6 +86,11 @@ li {
   list-style-type: none;
   padding: 0px;
   margin: 0px;
+  img {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+  }
   // margin-bottom: -30px;
 
   // margin-bottom: -8px;
@@ -121,21 +106,33 @@ li {
 }
 
 
-#slides_control > div{
-  height: 200px;
-}
-img{
-  margin:auto;
-  width: 400px;
-}
-#slides_control {
-  position:absolute;
-  width: 400px;
-  left:50%;
-  top:20px;
- margin-left:-200px;
+//----------------design grid---------------------------------------------------------------------------------------
+
+.grid > li {
+  width: 49px;
+  word-break: break-all;
+  overflow: hidden;
+  height: 49px;
+  border: 1px solid black;
+  display: inline-block;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: -8px;
+  img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+  }
+
 }
 
+.grid {
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+  max-width: 1000px;
+}
 
 
 
@@ -181,12 +178,24 @@ img{
   height: 100%;
 }
 
+.big {
+  &:before{
+    content: '';
+  width: 300%;
+  height: 300%;
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  }
+}
+
 .shrub {
   background-image: url('http://www.hslandscaping.com/images/serv-shrub.png');
   background-size: contain;
   width: 100%;
   height: 100%;
 }
+
 
 .tree {
   background-image: url('http://vignette1.wikia.nocookie.net/farmville2/images/5/5b/Willow_Tree.png/revision/latest?cb=20121011130840');

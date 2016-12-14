@@ -47,7 +47,7 @@
 
 
 <ol id="designGrid" class="grid col-md-11">
-  <li ng-repeat="i in designsNew.myArr track by $index" id="{{$index}}" class="grass" ng-click="designsNew.setTile($index)"></li>
+  <li ng-repeat="i in designsNew.myArr track by $index" id="{{$index}}" data-image="http://downloads2.esri.com/support/TechArticles/blank256.png" class="grass" ng-click="designsNew.setTile($index)"></li>
 </ol>
 
 <button ng-click="designsNew.create()">Next</button>

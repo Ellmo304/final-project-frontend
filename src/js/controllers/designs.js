@@ -30,6 +30,7 @@ function DesignsNewController(Design, Tile, Garden, $state) {
       designId = garden.design.id;
       for (let i=0; i < tiles.length; i++) {
         designsNew.tile = {};
+        designsNew.tile.image = tiles[i].dataset.image;
         designsNew.tile.class_type = tiles[i].className;
         designsNew.tile.position = tiles[i].id;
         designsNew.tile.design_id = designId;
@@ -52,6 +53,7 @@ function DesignsNewController(Design, Tile, Garden, $state) {
   function setTile(index) {
     console.log(tiles[index].className);
     tiles[index].className = `${designsNew.selectedClass}`;
+    tiles[index].dataset.image = designsNew.selectedPng;
     tiles[index].innerHTML = `<img src=${designsNew.selectedPng}>`;
     designsNew.selectedPng = 'http://downloads2.esri.com/support/TechArticles/blank256.png';
     console.log(tiles[index]);

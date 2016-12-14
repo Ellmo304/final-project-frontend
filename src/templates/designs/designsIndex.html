@@ -3,14 +3,16 @@
   <h1>Designs Show</h1>
 
   <div class="indexBox col-md-4" ng-repeat="design in designsIndex.all">
+    <a ui-sref="designsShow({id: design.id})">
     <div class="col-md-13">
       <h2>{{ design.name }}</h2>
       <!-- <h2>{{ design.garden.id }}</h2> -->
 
 
 <ol class="indexGrid" style="padding: 15px;">
-  <li style="padding-top: -14px;" ng-repeat="tile in design.tiles | orderBy : 'position'" class="{{tile.class_type}}"></li>
+  <li style="padding-top: -14px;" ng-repeat="tile in design.tiles | orderBy : 'position'" class="{{tile.class_type}}"><img ng-src="{{tile.image}}"></li>
 </ol>
 </div>
+</a>
 </div>
 </section>

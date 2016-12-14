@@ -1,14 +1,15 @@
 angular.module('finalProject')
-.controller('CarouselDemoCtrl', CarouselDemoCtrl);
+.controller('MyCarouselController', MyCarouselController);
 
 
-CarouselDemoCtrl.$inject = ['$scope', 'Garden', '$state'];
-function CarouselDemoCtrl($scope, Garden, $state) {
+MyCarouselController.$inject = ['$scope', 'Garden', '$state'];
+function MyCarouselController($scope, Garden, $state) {
   const myCarousel = this;
-  $scope.slides = [];
-  $scope.myInterval = 3000;
 
-
+  this.galleryItems = [
+      {content: 'First', color: '#B3ECFF'},
+      {content: 'Second', color: '#BA415B'}
+  ];
   Garden.get({ id: $state.params.id }, (thisGarden) => {
     for(let i = 0; i < thisGarden.images.length; i++) {
       $scope.slides.push(thisGarden.images[i]);
