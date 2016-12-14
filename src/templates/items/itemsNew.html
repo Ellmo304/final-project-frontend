@@ -24,15 +24,15 @@
       <input type="text" name="image" placeholder="Image Url" ng-model="itemsNew.item.image" class="u-full-width">
 
     </div>
-    <button>Add Item</button>
+    <button class="edit">Add Item</button>
   </form>
-  <button ui-sref="gardensIndex">Finish</button>
+  <button class="update" ui-sref="gardensIndex">Finish</button>
 
   <h2>Search Amazon for your Item:</h2>
 
   <form ng-submit="itemsNew.searchAmazon()">
     <input type="text" name="searchTerm" ng-model="itemsNew.searchTerm">
-    <button>Search Amazon</button>
+    <button class="update">Search Amazon</button>
   </form>
 
   <h2 ng-if="itemsNew.displayedResults.length > 0">Search Results:</h2>
@@ -42,7 +42,7 @@
       <li class="itemBox col-md-12" style="height: 100px; padding: 10px;">
 
           <div style="background-image: url({{item.image}});" alt="Description"></div>
-          <button style="float: right;" ng-click="itemsNew.createNew(item)">Add</button>
+          <button class="edit" style="float: right;" ng-click="itemsNew.createNew(item)">Add</button>
           <select ng-model="itemsNew.item_type">
             <option value="Plant">Plant</option>
             <option ng-model="itemsNew.item_type" value="Material">Material</option>
@@ -68,7 +68,7 @@
 
         <a ui-sref="itemsShow({ id: item.id })">
           <div style="background-image: url({{item.image}});" alt="Description"></div>  </a>
-          <button style="float: right;" ng-click="itemsIndex.addItem(item)">Add</button>
+          <button class="edit" style="float: right;" ng-click="itemsIndex.addItem(item)">Add</button>
           <a ui-sref="itemsShow({ id: item.id })">
             <h5>{{ item.price }}</h5>
             <h3 style="margin-top: 5px;">{{ item.name }}</h3>

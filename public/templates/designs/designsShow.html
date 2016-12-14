@@ -7,5 +7,5 @@
   <li style="border: none;" ng-repeat="tile in designsShow.design.tiles | orderBy : 'position'" class="{{tile.class_type}}"><img ng-src="{{tile.image}}"></li>
 </ol>
 
-  <button ng-if="designsShow.isCurrentUser()" ng-click="designsShow.deleteDesign()">Delete</button>
+  <button class="delete" ng-if="designsShow.isCurrentUser()" ng-click="designsShow.deleteDesign()">Delete</button>
 </section>

@@ -8,20 +8,20 @@
       <hr>
       <ul>
         <li ng-repeat="item in gardensShow.garden.items | filter : 'Plant' : comparator : 'item_type'">
-          <button ng-if="gardensShow.isCurrentUser()" ng-click="gardensShow.removeItem(item)" style="float: right;">X</button>
+          <button class="delete" ng-if="gardensShow.isCurrentUser()" ng-click="gardensShow.removeItem(item)" style="float: right;">X</button>
           <a ui-sref="itemsShow({ id: item.id })"><img style="width: 100px;" ng-src="{{item.image}}"><h6>{{ item.name }}  {{ item.price }}</h6></a></li>
           <hr>
-          <button ng-if="gardensShow.isCurrentUser()" ui-sref="itemsNew({id: gardensShow.garden.id})">Add Plants to this Garden</button>
+          <button class="update" ng-if="gardensShow.isCurrentUser()" ui-sref="itemsNew({id: gardensShow.garden.id})">Add Plants to this Garden</button>
         </ul>
       </div>
       <div ng-if="itemChoice === 2" >
         <hr>
         <ul>
           <li ng-repeat="item in gardensShow.garden.items | filter : 'Material' : comparator : 'item_type'">
-            <button ng-if="gardensShow.isCurrentUser()" ng-click="gardensShow.removeItem(item)" style="float: right;">X</button>
+            <button class="delete" ng-if="gardensShow.isCurrentUser()" ng-click="gardensShow.removeItem(item)" style="float: right;">X</button>
             <a ui-sref="itemsShow({ id: item.id })"><img style="width: 100px;" ng-src="{{item.image}}"><h6>{{ item.name }}  {{ item.price }}</h6></a> </li>
             <hr>
-              <button ng-if="gardensShow.isCurrentUser()" ui-sref="itemsNew({id: gardensShow.garden.id})">Add Plants to this Garden</button>
+              <button class="update" ng-if="gardensShow.isCurrentUser()" ui-sref="itemsNew({id: gardensShow.garden.id})">Add Plants to this Garden</button>
           </ul>
         </div>
       </div>
@@ -45,9 +45,9 @@
 <h5 ng-if="gardensShow.gardenRating">Average User Rating: {{gardensShow.gardenRating}}</h5>
 
 <p>About: {{ gardensShow.garden.description }}</p>
-<button ng-if="gardensShow.isCurrentUser()"><a ui-sref="gardensEdit({ id: gardensShow.garden.id })" class="button">Edit</a></button>
-<button ng-if="gardensShow.isCurrentUser()" ng-click="gardensShow.deleteGarden()">Delete</button>
-<button ng-click="gardensShow.showDesign(gardensShow.garden.design.id)">View Design</button>
+<button class="edit" ng-if="gardensShow.isCurrentUser()" ui-sref="gardensEdit({ id: gardensShow.garden.id })">Edit</button>
+<button class="delete" ng-if="gardensShow.isCurrentUser()" ng-click="gardensShow.deleteGarden()">Delete</button>
+<button class="update" ng-click="gardensShow.showDesign(gardensShow.garden.design.id)">View Design</button>
 </div>
 </section>
 
@@ -62,14 +62,14 @@
       <input type="text" name="body" placeholder="Post a comment..." ng-model="commentsNew.comment.body" class="u-full-width">
       <label for="rating">Rating (0-5) </label>
       <input type="number" placeholder="0"name="rating" min="0" max="5" ng-model="commentsNew.comment.rating" class="u-full-width">
-      <button>Submit</button>
+      <button class="update">Submit</button>
     </form>
     <hr>
   </div>
   <ul ng-controller="GardensShowController as gardensShow">
     <li ng-repeat="comment in gardensShow.garden.comments">
       <img class="circle" style="float: left;" ng-src="comment.user.image">
-      <button ng-if="gardensShow.isCommentPoster(comment)" ng-click="gardensShow.destroyComment(comment)" style="float: right;">X</button>
+      <button class="delete" ng-if="gardensShow.isCommentPoster(comment)" ng-click="gardensShow.destroyComment(comment)" style="float: right;">X</button>
       <h6>{{ comment.body }} <strong>{{ comment.rating }}/5</strong></h6> <p style="font-size: 14px;"><em> Posted by: {{comment.user_id}} On: {{comment.date}} </em></p><hr></li>
     </ul>
   </div>

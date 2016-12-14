@@ -1,8 +1,8 @@
 <h1>Create a new Garden Design!</h1>
 
 <div class="col-md-1">
-  <button ng-click="currentChoice = 1">Textures</button>
-  <button ng-click="currentChoice = 2">Plants</button>
+  <button class="edit" ng-click="currentChoice = 1">Textures</button>
+  <button class="edit" ng-click="currentChoice = 2">Plants</button>
 
   <div ng-show="currentChoice === 1">
     <div style="height: 50px; width: 50px; display: block;" class="grass" ng-click="designsNew.setClass('grass')">
@@ -50,4 +50,4 @@
   <li ng-repeat="i in designsNew.myArr track by $index" id="{{$index}}" data-image="http://downloads2.esri.com/support/TechArticles/blank256.png" class="grass" ng-click="designsNew.setTile($index)"></li>
 </ol>
 
-<button ng-click="designsNew.create()">Next</button>
+<button class="update" ng-click="designsNew.create()">Next</button>
