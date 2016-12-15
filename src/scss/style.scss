@@ -1,3 +1,5 @@
+@import "_variables";
+
 
 .gardenBox {
   padding: 5px 30px 5px 30px;
@@ -17,7 +19,7 @@
 
 .indexBox {
   padding: 30px;
-  border: 3px solid grey;
+  border: 3px solid lightgrey;
   border-radius: 15px;
   list-style-type: none;
   height: 440px;
@@ -313,7 +315,7 @@ these make the slideshow work
   border-radius: 45px;
   text-align: center;
   margin-bottom: 238px;
-  margin-left: 33%;
+  // margin-left: 33%;
   &:hover{
     background: black;
   }
@@ -361,16 +363,22 @@ h3.mainTitle {
 //=-----------------------------------------profile-------------------------------------------------------------
 
 #profileContainer {
-  margin-top: 60px;
   height: 550px;
-  text-align: center;
-  border: 5px solid white;
+  padding-top: 50px;
+  text-align: left;
   border-radius: 20px;
+  margin-bottom: 10px;
+  h2 {
+    padding-top: 20px;
+  }
   img {
-    margin: 0 auto;
+    float: right;
   }
 }
 
+body {
+  text-align: center;
+}
 
 main a {
   color: #3284F0
@@ -383,11 +391,36 @@ button {
   width: 100px;
 }
 button.update {
-  background-color: #3284F0;
+  background-color: $update;
+  &:hover {
+    background-color: lighten($update, 10%);
+  }
 }
 button.edit {
-  background-color: #29F068;
+  background-color: $edit;
+  &:hover {
+    background-color: lighten($edit, 10%);
+  }
 }
 button.delete {
-  background-color: #F03255;
+  background-color: $delete;
+  width: 25px;
+  padding: 0;
+  float: right;
+  &:hover {
+    background-color: lighten($delete, 10%);
+  }
+}
+button.updateLong {
+  background-color: $update;
+  width: 200px;
+  &:hover {
+    background-color: lighten($update, 10%);
+  }
+}
+button.deleteLong {
+  background-color: $delete;
+  &:hover {
+    background-color: lighten($delete, 10%);
+  }
 }

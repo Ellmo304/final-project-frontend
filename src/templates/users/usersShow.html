@@ -1,30 +1,35 @@
 <section>
-  <div id="profileContainer" class="col-md-12">
   <h1 ng-if="usersShow.isCurrentUser()">My Profile</h1>
   <h1 ng-if="!usersShow.isCurrentUser()">{{ usersShow.user.username }}'s Profile</h1>
+  <div id="profileContainer" style="height: 300px;" class="col-md-12">
+    <div class="col-md-6">
+
+      <img style="width: 200px;" ng-src="{{usersShow.user.image}}">
+    </div>
+    <div class="col-md-6">
       <h2>{{ usersShow.user.username }}</h2>
       <h4>{{ usersShow.user.email }}</h4>
-      <img style="width: 200px;" ng-src="{{usersShow.user.image}}">
       <br>
-  <button class="edit" ng-if="usersShow.isCurrentUser()" ui-sref="usersEdit({ id: usersShow.user.id })">Edit</button>
-  <button class="delete" ng-if="usersShow.isCurrentUser()" ng-click="usersShow.deleteUser()">Delete</button>
-</div>
-
-<div>
-  <ul>
-    <h2>My Gardens</h2>
-    <li class="col-md-4" ng-repeat="garden in usersShow.user.gardens | orderBy: 'id':true" style="padding: 10px;">
-      <div class="indexBox col-md-12" style="padding:15px;">
-       <br>
-      <a ui-sref="gardensShow({ id: garden.id })">
-      <h2>{{ garden.title }}</h2>
-       <img class="mainImg" style="width: 270px;" ng-src="{{garden.images[0].url}}" alt="Description" />
-<br>
-  </a>
-      <h4>Likes: {{garden.likes.length}}</h4> <button class="update" ng-click="gardensIndex.like(garden)">Like</button>
-
+      <button class="edit" ng-if="usersShow.isCurrentUser()" ui-sref="usersEdit({ id: usersShow.user.id })">Edit</button>
+      <button class="deleteLong" ng-if="usersShow.isCurrentUser()" ng-click="usersShow.deleteUser()">Delete</button>
+    </div>
   </div>
-    </li>
-  </ul>
-</div>
+
+  <div>
+    <ul>
+      <h2>My Gardens</h2>
+      <li class="col-md-4" ng-repeat="garden in usersShow.user.gardens | orderBy: 'id':true" style="padding: 10px;">
+        <div class="indexBox col-md-12" style="padding:15px;">
+          <br>
+          <a ui-sref="gardensShow({ id: garden.id })">
+            <h2>{{ garden.title }}</h2>
+            <img class="mainImg" style="width: 270px;" ng-src="{{garden.images[0].url}}" alt="Description" />
+            <br>
+          </a>
+          <h4>Likes: {{garden.likes.length}}</h4> <button class="update" ng-click="gardensIndex.like(garden)">Like</button>
+
+        </div>
+      </li>
+    </ul>
+  </div>
 </section>

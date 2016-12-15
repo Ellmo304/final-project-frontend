@@ -11,7 +11,7 @@
           <button class="delete" ng-if="gardensShow.isCurrentUser()" ng-click="gardensShow.removeItem(item)" style="float: right;">X</button>
           <a ui-sref="itemsShow({ id: item.id })"><img style="width: 100px;" ng-src="{{item.image}}"><h6>{{ item.name }}  {{ item.price }}</h6></a></li>
           <hr>
-          <button class="update" ng-if="gardensShow.isCurrentUser()" ui-sref="itemsNew({id: gardensShow.garden.id})">Add Plants to this Garden</button>
+          <button class="updateLong" ng-if="gardensShow.isCurrentUser()" ui-sref="itemsNew({id: gardensShow.garden.id})">Add Plants to this Garden</button>
         </ul>
       </div>
       <div ng-if="itemChoice === 2" >
@@ -21,7 +21,7 @@
             <button class="delete" ng-if="gardensShow.isCurrentUser()" ng-click="gardensShow.removeItem(item)" style="float: right;">X</button>
             <a ui-sref="itemsShow({ id: item.id })"><img style="width: 100px;" ng-src="{{item.image}}"><h6>{{ item.name }}  {{ item.price }}</h6></a> </li>
             <hr>
-              <button class="update" ng-if="gardensShow.isCurrentUser()" ui-sref="itemsNew({id: gardensShow.garden.id})">Add Plants to this Garden</button>
+              <button class="updateLong" ng-if="gardensShow.isCurrentUser()" ui-sref="itemsNew({id: gardensShow.garden.id})">Add Plants to this Garden</button>
           </ul>
         </div>
       </div>
@@ -46,7 +46,7 @@
 
 <p>About: {{ gardensShow.garden.description }}</p>
 <button class="edit" ng-if="gardensShow.isCurrentUser()" ui-sref="gardensEdit({ id: gardensShow.garden.id })">Edit</button>
-<button class="delete" ng-if="gardensShow.isCurrentUser()" ng-click="gardensShow.deleteGarden()">Delete</button>
+<button class="deleteLong" ng-if="gardensShow.isCurrentUser()" ng-click="gardensShow.deleteGarden()">Delete</button>
 <button class="update" ng-click="gardensShow.showDesign(gardensShow.garden.design.id)">View Design</button>
 </div>
 </section>

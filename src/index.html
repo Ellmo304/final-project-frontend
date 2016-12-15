@@ -28,7 +28,7 @@
         <a class="nav-link" ui-sref="designsIndex">Browse Designs<span class="sr-only">(current)</span></a>
       </li>
       <li ng-if="main.isLoggedIn()" class="nav-item active">
-        <a class="nav-link" ui-sref="usersShow({ id: main.currentUser })">My Profile <span class="sr-only">(current)</span></a>
+        <a class="nav-link" ui-sref="usersShow({id: main.currentUser})">My Profile <span class="sr-only">(current)</span></a>
       </li>
       <li ng-if="!main.isLoggedIn()" class="nav-item">
         <a class="nav-link" ui-sref="login">Login</a>
@@ -37,7 +37,7 @@
         <a class="nav-link" ui-sref="register">Register</a>
       </li>
       <li ng-if="main.isLoggedIn()" class="nav-item">
-        <a class="nav-link" ui-sref="landing" ng-click="main.logout()">Logout</a>
+        <a href="#" class="nav-link" ng-click="main.logout()">Logout</a>
       </li>
 
     </ul>

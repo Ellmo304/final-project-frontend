@@ -6,11 +6,19 @@ function MainController($auth, $state, $rootScope, Garden) {
   const main = this;
 
   main.isLoggedIn = $auth.isAuthenticated;
-  main.message = null;
-  if ($auth.getPayload()) {
-    return main.currentUser = $auth.getPayload().id;
-  }
 
+  main.message = null;
+  // main.isCurrentUser = isCurrentUser;
+
+  
+  main.currentUser = $auth.getPayload().id;
+
+
+  // function isCurrentUser() {
+  //   if ($auth.getPayload()) {
+  //     return $auth.getPayload().id;
+  //   }
+  // }
   function logout() {
     $auth.logout()
     .then(() => {
