@@ -8,6 +8,16 @@ function Router($stateProvider, $urlRouterProvider) {
     url: '/',
     templateUrl: '/templates/landing.html'
   })
+  .state('register', {
+    url: '/register',
+    templateUrl: '/templates/register.html',
+    controller: 'RegisterController as register'
+  })
+  .state('login', {
+    url: '/login',
+    templateUrl: '/templates/login.html',
+    controller: 'LoginController as login'
+  })
   .state('usersIndex', {
     url: '/users',
     templateUrl: '/templates/users/usersIndex.html',
@@ -88,16 +98,7 @@ function Router($stateProvider, $urlRouterProvider) {
     templateUrl: '/templates/tilesIndex.html',
     controller: 'TilesIndexController as tilesIndex'
   })
-    .state('register', {
-      url: '/register',
-      templateUrl: '/templates/register.html',
-      controller: 'RegisterController as register'
-    })
-    .state('login', {
-      url: '/login',
-      templateUrl: '/templates/login.html',
-      controller: 'LoginController as login'
-    });
+  ;
 
   $urlRouterProvider.otherwise('/gardens');
 }

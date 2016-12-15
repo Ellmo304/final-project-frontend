@@ -2,8 +2,8 @@
   <h1>myGardens Items</h1>
   <ul>
 
-    <div class="col-md-4"  ng-repeat="item in itemsIndex.all | orderBy: 'id'">
-      <li class="itemBox col-md-12" style="padding: 10px;">
+    <div class="col-md-4"  ng-repeat="item in itemsIndex.all | orderBy: 'id'" style="padding: 5px;">
+      <li class="itemBox col-md-12" style="margin-bottom: 0px;">
         <a ui-sref="itemsShow({ id: item.id })">
           <div style="background-image: url({{item.image}});" alt="Description"></div>
           <h5 style="float: right; margin-top: -3px;">{{ item.price }}</h5>

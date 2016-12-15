@@ -9,4 +9,24 @@
   <button class="edit" ng-if="usersShow.isCurrentUser()" ui-sref="usersEdit({ id: usersShow.user.id })">Edit</button>
   <button class="delete" ng-if="usersShow.isCurrentUser()" ng-click="usersShow.deleteUser()">Delete</button>
 </div>
+
+<div>
+  {{usersShow.user}}
+  <ul>
+    <li class="col-md-4" ng-repeat="garden in usersShow.user.gardens | orderBy: 'id':true" style="padding: 10px;">
+      <div class="indexBox col-md-12" style="padding:15px;">
+    <h4 style="margin-top: 22px; float:left;">{{ garden.user.username }}</h4></a>
+       <br>
+      <a ui-sref="gardensShow({ id: garden.id })">
+      <br><h2 style="margin-top: 30px;">{{ garden.title }}</h2>
+
+       <img class="mainImg" style="width: 270px;" ng-src="{{garden.images[0].url}}" alt="Description" />
+<br>
+  </a>
+      <h4>Likes: {{garden.likes.length}}</h4> <button class="update" ng-click="gardensIndex.like(garden.id)">Like</button>
+
+  </div>
+    </li>
+  </ul>
+</div>
 </section>

@@ -18,8 +18,9 @@
 .indexBox {
   padding: 30px;
   border: 3px solid grey;
+  border-radius: 15px;
   list-style-type: none;
-  height: 400px;
+  height: 440px;
   max-height: 600px;
   text-align: center;
   margin-bottom: 30px;
@@ -255,41 +256,51 @@ essential styles:
 these make the slideshow work
 */
 #slides {
-	position: relative;
-	height: 150px;
-	padding: 0px;
-	margin: 30px 0px 30px 0px;
-	list-style-type: none;
+  position: relative;
+  height: 150px;
+  padding: 0px;
+  margin: 30px 0px 30px 0px;
+  list-style-type: none;
 }
 
 .slide {
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-	z-index: 1;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
 
-	-webkit-transition: opacity 4s;
-	-moz-transition: opacity 4s;
-	// -o-transition: opacity 1s;
-	transition: opacity 4s;
+  -webkit-transition: opacity 4s;
+  -moz-transition: opacity 4s;
+  // -o-transition: opacity 1s;
+  transition: opacity 4s;
 }
 
 .showing{
-	opacity: 1;
-	z-index: 2;
+  opacity: 1;
+  z-index: 2;
 }
 
 //-----------------------------------landing page----------------------------------------------------------------
 
-#splash {
-  background-image: url("http://www.echinopsgardendesign.co.uk/wordpress/wp-content/uploads/2012/03/long_thin_garden.jpg");
+.splash {
   height: 105vh;
   width: 100vw;
   margin-top: -90px;
   margin-left: -150px;
+}
+#login {
+  background-image: url("http://www.gardenclublondon.co.uk/wp-content/uploads/2012/08/small-garden-design-London.jpg");
+  background-size: cover;
+}
+#landing {
+  background-image: url("http://www.echinopsgardendesign.co.uk/wordpress/wp-content/uploads/2012/03/long_thin_garden.jpg");
+}
+#register {
+  background-image: url("http://www.abroughtondesign.com/wp-content/uploads/2015/04/SAMPLE-PHOTO.jpg");
+  background-size: cover;
 }
 
 .splashButton {
@@ -304,8 +315,8 @@ these make the slideshow work
   margin-bottom: 238px;
   margin-left: 33%;
   &:hover{
-   background: black;
- }
+    background: black;
+  }
 }
 
 #titleHolder {
@@ -314,8 +325,13 @@ these make the slideshow work
   // margin-right: 200px;
   // margin-bottom: -400px;
   background-color: rgba(0,0,0,0.5);
-
 }
+
+.gdnInput {
+  border-radius: 10px;
+}
+
+
 
 .mainTitle {
   padding-top: 235px;
@@ -350,6 +366,14 @@ h3.mainTitle {
   text-align: center;
   border: 5px solid white;
   border-radius: 20px;
+  img {
+    margin: 0 auto;
+  }
+}
+
+
+main a {
+  color: #3284F0
 }
 
 button {
@@ -358,12 +382,12 @@ button {
   border-radius: 15px;
   width: 100px;
 }
-  button.update {
-    background-color: skyblue;
-  }
-  button.edit {
-    background-color: green;
-  }
-  button.delete {
-    background-color: crimson;
-  }
+button.update {
+  background-color: #3284F0;
+}
+button.edit {
+  background-color: #29F068;
+}
+button.delete {
+  background-color: #F03255;
+}

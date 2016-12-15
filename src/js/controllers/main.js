@@ -7,12 +7,14 @@ function MainController($auth, $state, $rootScope, Garden) {
 
   main.isLoggedIn = $auth.isAuthenticated;
   main.message = null;
-  main.currentUser = $auth.getPayload().id;
+  if ($auth.getPayload()) {
+    return main.currentUser = $auth.getPayload().id;
+  }
 
   function logout() {
     $auth.logout()
     .then(() => {
-      $state.go('usersIndex');
+      $state.go('landing');
     });
   }
 

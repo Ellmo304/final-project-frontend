@@ -1,13 +1,13 @@
 <section>
   <h1>myGardens</h1>
   <ul>
-    <li class="col-md-4" ng-repeat="garden in gardensIndex.all | orderBy: 'id':true">
+    <li class="col-md-4" ng-repeat="garden in gardensIndex.all | orderBy: 'id':true" style="padding: 10px;">
       <div class="indexBox col-md-12" style="padding:15px;">
       <img class="circle" style="width: 60px; height: 60px; float:left; " ng-src="{{garden.user.image}}">
-      <a ui-sref="usersShow({ id: garden.user.id})"><h4 style="float:left;">{{ garden.user.username }}</h4></a>
+      <a ui-sref="usersShow({ id: garden.user.id})"><h4 style="margin-top: 22px; float:left;">{{ garden.user.username }}</h4></a>
        <br>
       <a ui-sref="gardensShow({ id: garden.id })">
-      <br><h2>{{ garden.title }}</h2>
+      <br><h2 style="margin-top: 30px;">{{ garden.title }}</h2>
 
        <img class="mainImg" style="width: 270px;" ng-src="{{garden.images[0].url}}" alt="Description" />
 <br>

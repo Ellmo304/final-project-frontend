@@ -2,7 +2,7 @@
 
   <h1>Designs Show</h1>
 
-  <div class="indexBox col-md-4" ng-repeat="design in designsIndex.all">
+  <div class="indexBox col-md-4" style="height: 340px;" ng-repeat="design in designsIndex.all" >
     <a ui-sref="designsShow({id: design.id})">
     <div class="col-md-13">
       <h2>{{ design.name }}</h2>
