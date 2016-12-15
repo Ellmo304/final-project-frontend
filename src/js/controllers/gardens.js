@@ -28,21 +28,29 @@ function GardensIndexController(Garden, $auth, $state) {
   const gardensIndex = this;
   gardensIndex.all = Garden.query();
 
-
-  function like(id) {
-    Garden.get({id: id}, (garden) => {
-      const likeUser = ($auth.getPayload().id).toString();
-      if(garden.likes.indexOf(likeUser) === -1) {
-        garden.likes.push(likeUser);
-      }
-      garden.$update();
-    });
-    setTimeout(function(){
+  function like(garden) {
+    garden.$like(() => {
       $state.reload();
-    }, 500);
+    });
   }
 
+  function unlike(garden) {
+    garden.$unlike(() => {
+      $state.reload();
+    });
+  }
+
+  function hasLiked(garden) {
+    const userId = ($auth.getPayload().id.toString());
+    const likes = garden.likes; {
+      return likes.indexOf(userId) === -1;
+    }
+  }
+
+
+  this.hasLiked = hasLiked;
   this.like = like;
+  this.unlike = unlike;
 }
 
 
@@ -91,7 +99,7 @@ function GardensShowController(Garden, $state, $auth, Comment, Item) {
   }
 
   function isCommentPoster(comment) {
-    return comment.user_id === $auth.getPayload().id;
+    return comment.user.id === $auth.getPayload().id;
   }
 
   function removeItem(item) {

@@ -12,7 +12,7 @@
        <img class="mainImg" style="width: 270px;" ng-src="{{garden.images[0].url}}" alt="Description" />
 <br>
   </a>
-      <h4>Likes: {{garden.likes.length}}</h4> <button class="update" ng-click="gardensIndex.like(garden.id)">Like</button>
+      <h4>Likes: {{garden.likes.length}}</h4> <button ng-if="gardensIndex.hasLiked(garden)" class="update" ng-click="gardensIndex.like(garden)">Like</button><button ng-if="!gardensIndex.hasLiked(garden)" class="update" ng-click="gardensIndex.unlike(garden)">Unlike</button>
 
   </div>
     </li>

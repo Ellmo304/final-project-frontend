@@ -68,9 +68,9 @@
   </div>
   <ul ng-controller="GardensShowController as gardensShow">
     <li ng-repeat="comment in gardensShow.garden.comments">
-      <img class="circle" style="float: left;" ng-src="comment.user.image">
+      <img class="circle" style="float: left; width: 50px; height: 50px;" ng-src="{{comment.user.image}}">
       <button class="delete" ng-if="gardensShow.isCommentPoster(comment)" ng-click="gardensShow.destroyComment(comment)" style="float: right;">X</button>
-      <h6>{{ comment.body }} <strong>{{ comment.rating }}/5</strong></h6> <p style="font-size: 14px;"><em> Posted by: {{comment.user_id}} On: {{comment.date}} </em></p><hr></li>
+      <h6>{{ comment.body }} <strong>{{ comment.rating }}/5</strong></h6> <p style="font-size: 14px;"><em> Posted by: {{comment.user.username}} On: {{comment.date}} </em></p><hr></li>
     </ul>
   </div>
 
