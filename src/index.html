@@ -10,34 +10,35 @@
     <script src="/js/app.js" charset="utf-8"></script>
   </head>
   <body>
-
     <nav id="myNav" ng-controller="MainController as main">
   <div class="container" >
-    <a class="navbar-brand" href="/">myGarden</a>
     <ul class="nav navbar-nav">
-      <li ng-if="main.isLoggedIn()" class="nav-item active">
-        <a class="nav-link" ui-sref="gardensNew">Upload Garden <span class="sr-only">(current)</span></a>
-      </li>
       <li class="nav-item active">
-        <a class="nav-link" ui-sref="gardensIndex">Browse Gardens <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" ui-sref="itemsIndex">Browse Items <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" ui-sref="designsIndex">Browse Designs<span class="sr-only">(current)</span></a>
+        <a class="myBrand" style="color: #14CC21" href="/">myGarden</a>
       </li>
       <li ng-if="main.isLoggedIn()" class="nav-item active">
-        <a class="nav-link" ui-sref="usersShow({id: main.currentUser})">My Profile <span class="sr-only">(current)</span></a>
+        <a ui-sref="gardensNew">Upload Garden <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a ui-sref="gardensIndex">Browse Gardens <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a ui-sref="itemsIndex">Browse Items <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a ui-sref="designsIndex">Browse Designs<span class="sr-only">(current)</span></a>
+      </li>
+      <li ng-if="main.isLoggedIn()" class="nav-item active">
+        <a ui-sref="usersShow({id: main.currentUser})">My Profile <span class="sr-only">(current)</span></a>
       </li>
       <li ng-if="!main.isLoggedIn()" class="nav-item">
-        <a class="nav-link" ui-sref="login">Login</a>
+        <a ui-sref="login">Login</a>
       </li>
       <li ng-if="!main.isLoggedIn()" class="nav-item">
-        <a class="nav-link" ui-sref="register">Register</a>
+        <a ui-sref="register">Register</a>
       </li>
       <li ng-if="main.isLoggedIn()" class="nav-item">
-        <a href="#" class="nav-link" ng-click="main.logout()">Logout</a>
+        <a href="#" ng-click="main.logout()">Logout</a>
       </li>
 
     </ul>
@@ -47,5 +48,6 @@
     <main ui-view class="container">
 
     </main>
+
   </body>
 </html>

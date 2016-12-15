@@ -4,6 +4,7 @@
 .gardenBox {
   padding: 5px 30px 5px 30px;
   border: 3px solid grey;
+  background-color: rgba(255,255,255,0.8);
   list-style-type: none;
   margin-left: 0;
   height: 700px;
@@ -22,6 +23,7 @@
   border: 3px solid lightgrey;
   border-radius: 15px;
   list-style-type: none;
+  background-color: rgba(255,255,255,0.8);
   height: 440px;
   max-height: 600px;
   text-align: center;
@@ -44,6 +46,7 @@
   border: 3px solid grey;
   list-style-type: none;
   height: 100px;
+  background-color: rgba(255,255,255,0.8);
   max-height: 100px;
   text-align: center;
   margin-bottom: 30px;
@@ -103,6 +106,7 @@ li {
 .indexGrid {
   font-size: 0;
   padding: 0px;
+  background-color: rgba(255,255,255,0.8);
   margin: 0px;
   max-width: 360px;
   max-height: 100px;
@@ -146,6 +150,8 @@ li {
 
 #designBar {
   text-align: center;
+  background-color: rgba(255,255,255,0.8);
+
   h6 {
     text-align: center;
     margin-left: -22px;
@@ -290,7 +296,7 @@ these make the slideshow work
 .splash {
   height: 105vh;
   width: 100vw;
-  margin-top: -90px;
+  margin-top: -35px;
   margin-left: -150px;
 }
 #login {
@@ -299,11 +305,20 @@ these make the slideshow work
 }
 #landing {
   background-image: url("http://www.echinopsgardendesign.co.uk/wordpress/wp-content/uploads/2012/03/long_thin_garden.jpg");
+  background-size: cover;
 }
 #register {
   background-image: url("http://www.abroughtondesign.com/wp-content/uploads/2015/04/SAMPLE-PHOTO.jpg");
   background-size: cover;
 }
+body {
+  background-image: url("http://livyogastudio.com/wp-content/uploads/2016/07/nice-contemporary-landscape-design-ideas-as-minimalist-garden.jpg");
+  background-size: cover;
+}
+
+
+
+
 
 .splashButton {
   color: white;
@@ -326,6 +341,8 @@ these make the slideshow work
   // margin-left: 200px;
   // margin-right: 200px;
   // margin-bottom: -400px;
+  background-size: cover;
+  // background-color: red;
   background-color: rgba(0,0,0,0.5);
 }
 
@@ -357,70 +374,83 @@ h3.mainTitle {
 
 #myNav {
   margin-bottom: 15px;
-  background-color: rgba(25,133,133,0.9);
+  font-size: 17px;
+  border-bottom: 5px solid #14CC21;
+  a {    font-weight: 400;
+    color: white;}
+    background-color: rgba(0,0,0,1);
+  }
+
+.myBrand {
+font-size: 25px;
 }
 
-//=-----------------------------------------profile-------------------------------------------------------------
+#myNav.myBrand > a {color: lime;}
 
-#profileContainer {
-  height: 550px;
-  padding-top: 50px;
-  text-align: left;
-  border-radius: 20px;
-  margin-bottom: 10px;
-  h2 {
-    padding-top: 20px;
+
+
+  //=-----------------------------------------profile-------------------------------------------------------------
+
+  #profileContainer {
+    height: 550px;
+    background-color: rgba(255,255,255,0.8);
+    padding-top: 50px;
+    text-align: left;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    h2 {
+      padding-top: 20px;
+    }
+    img {
+      float: right;
+    }
   }
-  img {
+
+  body {
+    text-align: center;
+  }
+
+  main a {
+    color: #3284F0
+  }
+
+  button {
+    color: white;
+    border: 2px solid white;
+    border-radius: 15px;
+    width: 100px;
+  }
+  button.update {
+    background-color: $update;
+    &:hover {
+      background-color: lighten($update, 10%);
+    }
+  }
+  button.edit {
+    background-color: $edit;
+    &:hover {
+      background-color: lighten($edit, 10%);
+    }
+  }
+  button.delete {
+    background-color: $delete;
+    width: 25px;
+    padding: 0;
     float: right;
+    &:hover {
+      background-color: lighten($delete, 10%);
+    }
   }
-}
-
-body {
-  text-align: center;
-}
-
-main a {
-  color: #3284F0
-}
-
-button {
-  color: white;
-  border: 2px solid white;
-  border-radius: 15px;
-  width: 100px;
-}
-button.update {
-  background-color: $update;
-  &:hover {
-    background-color: lighten($update, 10%);
+  button.updateLong {
+    background-color: $update;
+    width: 200px;
+    &:hover {
+      background-color: lighten($update, 10%);
+    }
   }
-}
-button.edit {
-  background-color: $edit;
-  &:hover {
-    background-color: lighten($edit, 10%);
+  button.deleteLong {
+    background-color: $delete;
+    &:hover {
+      background-color: lighten($delete, 10%);
+    }
   }
-}
-button.delete {
-  background-color: $delete;
-  width: 25px;
-  padding: 0;
-  float: right;
-  &:hover {
-    background-color: lighten($delete, 10%);
-  }
-}
-button.updateLong {
-  background-color: $update;
-  width: 200px;
-  &:hover {
-    background-color: lighten($update, 10%);
-  }
-}
-button.deleteLong {
-  background-color: $delete;
-  &:hover {
-    background-color: lighten($delete, 10%);
-  }
-}

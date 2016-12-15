@@ -10,15 +10,14 @@ function MainController($auth, $state, $rootScope, Garden) {
   main.message = null;
   // main.isCurrentUser = isCurrentUser;
 
-  
-  main.currentUser = $auth.getPayload().id;
 
 
-  // function isCurrentUser() {
-  //   if ($auth.getPayload()) {
-  //     return $auth.getPayload().id;
-  //   }
+
+
+  // if ($auth.getPayload()) {
+  //   return $auth.getPayload().id;
   // }
+
   function logout() {
     $auth.logout()
     .then(() => {
@@ -31,6 +30,10 @@ function MainController($auth, $state, $rootScope, Garden) {
 
 
   function protectPages(e, toState, toParams) {
+    const payload = $auth.getPayload();
+    if(payload) {
+      main.currentUser = $auth.getPayload().id;
+    }
     Garden.get({id: parseFloat(toParams.id)}, (myGarden) => {
       console.log(myGarden);
       if((!$auth.isAuthenticated() &&
