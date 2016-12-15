@@ -1,12 +1,12 @@
-<section class="row" ng-controller="ItemsNewController as itemsNew">
+<section style="padding:20px;" class="row" ng-controller="ItemsNewController as itemsNew">
 
 <h2>Now Add Plants & Materials to your Garden!</h2>
 
-<p>Time to show off your creativity to everyone! Upload some images to show off your garden design idea below. You can add as many as you like for each garden you upload. Why not share your initial plans and garden design drawings now and later on, update with some photos of your garden once you've implemented your awesome ideas? </p>
+<p>Time to populate your garden! Add items to your project by either creating a new item on our site, searching Amazon to find an item that you're looking for or by choosing from our extensive database of existing plants and materials. </p>
 
   <h3>Add a new Item to our site:</h3>
     <div class="twelve columns">
-  <form style="padding: 10px;" ng-submit="itemsNew.create()">
+  <form ng-submit="itemsNew.create()">
 
       <label>Item Type</label>
       <select ng-model="itemsNew.item.item_type">

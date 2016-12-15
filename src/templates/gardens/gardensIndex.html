@@ -1,7 +1,7 @@
 
     <!-- <h1 class="myTitle">myGarden</h1> -->
     <ul>
-      <li class="col-md-4" ng-repeat="garden in gardensIndex.all | orderBy: 'id':true" style="margin-top: 40px;padding: 10px;">
+      <li class="col-md-4" ng-repeat="garden in gardensIndex.all | orderBy: 'id':true" style="margin-top: 50px;padding: 10px;">
         <div class="indexBox col-md-12" style="padding:15px;">
           <img class="circle" style="width: 60px; height: 60px; float:left; " ng-src="{{garden.user.image}}">
           <a ui-sref="usersShow({ id: garden.user.id})"><h4 style="margin-top: 22px; float:left;">{{ garden.user.username }}</h4></a>
