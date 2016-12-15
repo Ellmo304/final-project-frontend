@@ -1,5 +1,10 @@
 @import "_variables";
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
 
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+}
 
 .gardenBox {
   padding: 5px 30px 5px 30px;
@@ -20,7 +25,7 @@
 
 .indexBox {
   padding: 30px;
-  border: 3px solid lightgrey;
+  // border: 3px solid lightgrey;
   border-radius: 15px;
   list-style-type: none;
   background-color: rgba(255,255,255,0.8);
@@ -29,6 +34,8 @@
   text-align: center;
   margin-bottom: 30px;
   overflow: auto;
+  box-shadow: 5px 5px 10px #888888;
+
   ul {
     list-style:none;
     padding-left:0;
@@ -293,11 +300,18 @@ these make the slideshow work
 
 //-----------------------------------landing page----------------------------------------------------------------
 
+
+#titleHolder {
+  background-size: cover;
+  background-color: rgba(0,0,0,0.5);
+}
+
+
 .splash {
   height: 105vh;
   width: 100vw;
-  margin-top: -35px;
-  margin-left: -150px;
+  margin-top: -20px;
+  margin-left: -155px;
 }
 #login {
   background-image: url("http://www.gardenclublondon.co.uk/wp-content/uploads/2012/08/small-garden-design-London.jpg");
@@ -336,21 +350,20 @@ body {
   }
 }
 
-#titleHolder {
-  // margin-top: 260px;
-  // margin-left: 200px;
-  // margin-right: 200px;
-  // margin-bottom: -400px;
-  background-size: cover;
-  // background-color: red;
-  background-color: rgba(0,0,0,0.5);
-}
-
 .gdnInput {
   border-radius: 10px;
 }
 
-
+main.container {
+  background-color: rgba(255,255,255,1);
+  margin-top: -15px;
+  border-left: 5px solid #14CC21;
+  border-right: 5px solid #14CC21;
+  border-bottom: 5px solid #14CC21;
+  padding-right: 55px;
+  height: 100%;
+  min-height: 704px;
+}
 
 .mainTitle {
   padding-top: 235px;
@@ -359,6 +372,7 @@ body {
   font-weight: 500;
   font-size: 120px;
 }
+
 h3.mainTitle {
   padding-top: 20px;
   font-weight: 400;
@@ -369,6 +383,17 @@ h3.mainTitle {
 .pageHeading {
   text-align: center;
   margin-top: 22px;
+  margin-bottom: 45px;
+}
+
+.myTitle {
+  text-align: center;
+  margin-top: 45px;
+  color: #14CC21;
+  font-size: 70px;
+  font-weight: 900;
+  // text-shadow: 4px 2px 6px #331;
+  text-shadow: 3px 3px 2px #444444;
   margin-bottom: 45px;
 }
 
@@ -385,7 +410,6 @@ h3.mainTitle {
 font-size: 25px;
 }
 
-#myNav.myBrand > a {color: lime;}
 
 
 
@@ -416,6 +440,7 @@ font-size: 25px;
 
   button {
     color: white;
+    padding: 5px;
     border: 2px solid white;
     border-radius: 15px;
     width: 100px;
