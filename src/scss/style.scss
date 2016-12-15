@@ -54,10 +54,7 @@
   }
 }
 
-#myNav {
-  margin-bottom: 15px;
-  background-color: rgba(25,133,133,0.5);
-}
+
 
 .mainImg {
   margin-top: 15px;
@@ -143,6 +140,28 @@ li {
 
 
 /// classes for garden design textures-------------------------------------------------------------------------------------------
+
+#designBar {
+  text-align: center;
+  h6 {
+    text-align: center;
+    margin-left: -22px;
+  }
+}
+
+#texture {
+  height: 35px;
+  width: 35px;
+  display: block;
+  margin-left: 5px;
+}
+
+#plant {
+  height: 50px;
+  width: 50px;
+  margin-left: -5px;
+  display: block;
+}
 
 .grass {
   background-image: url('http://www.freetexturesdownload.com/image/Grass-Free-Textures-15015.jpg');
@@ -264,7 +283,15 @@ these make the slideshow work
 }
 
 //-----------------------------------landing page----------------------------------------------------------------
-body {background: lightgrey;}
+
+#splash {
+  background-image: url("http://www.echinopsgardendesign.co.uk/wordpress/wp-content/uploads/2012/03/long_thin_garden.jpg");
+  height: 105vh;
+  width: 100vw;
+  margin-top: -90px;
+  margin-left: -150px;
+}
+
 .splashButton {
   color: white;
   font-size: 20px;
@@ -273,11 +300,47 @@ body {background: lightgrey;}
   padding: 15px;
   width: 200px;
   border-radius: 45px;
+  text-align: center;
+  margin-bottom: 238px;
+  margin-left: 33%;
   &:hover{
    background: black;
  }
 }
 
+#titleHolder {
+  // margin-top: 260px;
+  // margin-left: 200px;
+  // margin-right: 200px;
+  // margin-bottom: -400px;
+  background-color: rgba(0,0,0,0.5);
+
+}
+
+.mainTitle {
+  padding-top: 235px;
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  font-size: 120px;
+}
+h3.mainTitle {
+  padding-top: 20px;
+  font-weight: 400;
+  font-size: 45px;
+  padding-bottom: 20px;
+}
+
+.pageHeading {
+  text-align: center;
+  margin-top: 22px;
+  margin-bottom: 45px;
+}
+
+#myNav {
+  margin-bottom: 15px;
+  background-color: rgba(25,133,133,0.9);
+}
 
 //=-----------------------------------------profile-------------------------------------------------------------
 
@@ -287,7 +350,6 @@ body {background: lightgrey;}
   text-align: center;
   border: 5px solid white;
   border-radius: 20px;
-
 }
 
 button {

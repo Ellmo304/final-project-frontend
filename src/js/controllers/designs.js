@@ -48,6 +48,7 @@ function DesignsNewController(Design, Tile, Garden, $state) {
 
   function setClass(texture) {
     designsNew.selectedClass = texture;
+    designsNew.selectedPng = 'http://downloads2.esri.com/support/TechArticles/blank256.png';
   }
 
   function setTile(index) {
@@ -55,7 +56,6 @@ function DesignsNewController(Design, Tile, Garden, $state) {
     tiles[index].className = `${designsNew.selectedClass}`;
     tiles[index].dataset.image = designsNew.selectedPng;
     tiles[index].innerHTML = `<img src=${designsNew.selectedPng}>`;
-    designsNew.selectedPng = 'http://downloads2.esri.com/support/TechArticles/blank256.png';
     console.log(tiles[index]);
   }
 

@@ -1,44 +1,44 @@
-<h1>Create a new Garden Design!</h1>
+<h1 class="pageHeading">Create a new Garden Design!</h1>
 
-<div class="col-md-1">
-  <button class="edit" ng-click="currentChoice = 1">Textures</button>
-  <button class="edit" ng-click="currentChoice = 2">Plants</button>
+<div id="designBar" class="col-md-1">
+  <button style="margin-left: -30px;" class="edit" ng-click="currentChoice = 1">Textures</button>
+  <button style="margin: 0px 0px 10px -30px;" class="edit" ng-click="currentChoice = 2">Plants</button>
 
   <div ng-show="currentChoice === 1">
-    <div style="height: 50px; width: 50px; display: block;" class="grass" ng-click="designsNew.setClass('grass')">
+    <div id="texture" class="grass" ng-click="designsNew.setClass('grass')">
     </div>
     <h6>Turf</h6>
-    <div style="height: 50px; width: 50px; display: block;" class="soil" ng-click="designsNew.setClass('soil')">
+    <div id="texture" class="soil" ng-click="designsNew.setClass('soil')">
     </div>
     <h6>Soil</h6>
-    <div style="height: 50px; width: 50px; display: block;" class="paving" ng-click="designsNew.setClass('paving')">
+    <div id="texture" class="paving" ng-click="designsNew.setClass('paving')">
     </div>
     <h6>Paving</h6>
-    <div style="height: 50px; width: 50px; display: block;" class="decking" ng-click="designsNew.setClass('decking')">
+    <div id="texture" class="decking" ng-click="designsNew.setClass('decking')">
     </div>
     <h6>Decking</h6>
-    <div style="height: 50px; width: 50px; display: block;" class="water" ng-click="designsNew.setClass('water')">
+    <div id="texture" class="water" ng-click="designsNew.setClass('water')">
     </div>
     <h6>Water</h6>
-    <div style="height: 50px; width: 50px; display: block;" class="stones" ng-click="designsNew.setClass('stones')">
+    <div id="texture" class="stones" ng-click="designsNew.setClass('stones')">
     </div>
     <h6>Stones</h6>
   </div>
 
   <div ng-show="currentChoice === 2">
-    <div style="height: 50px; width: 50px; display: block;" class="shrub" ng-click="designsNew.setPng('http://www.hslandscaping.com/images/serv-shrub.png')">
+    <div id="plant" class="shrub" ng-click="designsNew.setPng('http://www.hslandscaping.com/images/serv-shrub.png')">
     </div>
     <h6>Shrub</h6>
-    <div style="height: 50px; width: 50px; display: block;" class="tree" ng-click="designsNew.setPng('http://vignette1.wikia.nocookie.net/farmville2/images/5/5b/Willow_Tree.png/revision/latest?cb=20121011130840')">
+    <div id="plant" class="tree" ng-click="designsNew.setPng('http://vignette1.wikia.nocookie.net/farmville2/images/5/5b/Willow_Tree.png/revision/latest?cb=20121011130840')">
     </div>
     <h6>Tree</h6>
-    <div style="height: 50px; width: 50px; display: block;" class="flowers" ng-click="designsNew.setPng('http://roelse.us/rlc/center/flower5.png')">
+    <div id="plant" class="flowers" ng-click="designsNew.setPng('http://roelse.us/rlc/center/flower5.png')">
     </div>
     <h6>Flowers</h6>
-    <div style="height: 50px; width: 50px; display: block;" class="hedge" ng-click="designsNew.setPng('http://vignette2.wikia.nocookie.net/battlenations/images/f/fd/Deco-ShortHedge.png/revision/latest?cb=20121016041944')">
+    <div id="plant" class="hedge" ng-click="designsNew.setPng('http://vignette2.wikia.nocookie.net/battlenations/images/f/fd/Deco-ShortHedge.png/revision/latest?cb=20121016041944')">
     </div>
     <h6>Hedge</h6>
-    <div style="height: 50px; width: 50px; display: block;" class="flowerShrub" ng-click="designsNew.setPng('http://vterrain.org/Locations/za/fynbos_01_256.png')">
+    <div id="plant" class="flowerShrub" ng-click="designsNew.setPng('http://vterrain.org/Locations/za/fynbos_01_256.png')">
     </div>
     <h6>Flowering Shrub</h6>
   </div>
@@ -50,4 +50,4 @@
   <li ng-repeat="i in designsNew.myArr track by $index" id="{{$index}}" data-image="http://downloads2.esri.com/support/TechArticles/blank256.png" class="grass" ng-click="designsNew.setTile($index)"></li>
 </ol>
 
-<button class="update" ng-click="designsNew.create()">Next</button>
+<button style="margin: 30px 60px; float:right" class="update" ng-click="designsNew.create()">Next</button>
