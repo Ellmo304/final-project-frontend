@@ -1,20 +1,19 @@
-<section>
-  <h1>Gardens Index</h1>
-  <ul>
-    <li class="col-md-4" ng-repeat="garden in gardensIndex.all">
-      <div class="gardenBox col-md-12" style="padding:15px;">
-      <img class="circle" style="width: 60px; height: 60px; float:left; " ng-src="{{garden.user.image}}">
-      <h4 style="float:left;">{{ garden.user.username }}</h4>
-       <br>
-      <a ui-sref="gardensShow({ id: garden.id })">
-      <br><h2>{{ garden.title }}</h2>
 
-       <img class="mainImg" style="width: 200px;" ng-src="{{garden.images[0].url}}" alt="Description" />
-<br>
+    <!-- <h1 class="myTitle">myGarden</h1> -->
+    <ul>
+      <li class="col-md-4" ng-repeat="garden in gardensIndex.all | orderBy: 'id':true" style="margin-top: 40px;padding: 10px;">
+        <div class="indexBox col-md-12" style="padding:15px;">
+          <img class="circle" style="width: 60px; height: 60px; float:left; " ng-src="{{garden.user.image}}">
+          <a ui-sref="usersShow({ id: garden.user.id})"><h4 style="margin-top: 22px; float:left;">{{ garden.user.username }}</h4></a>
+          <br>
+          <a ui-sref="gardensShow({ id: garden.id })">
+            <br><h2 style="margin-top: 30px;">{{ garden.title }}</h2>
 
-      <!-- <h4>{{ garden.description }}</h4> -->
-    </a>
-  </div>
-    </li>
-  </ul>
-</section>
+            <img class="mainImg" style="width: 270px;" ng-src="{{garden.images[0].url}}" alt="Description" />
+            <br>
+          </a>
+          <h4>Likes: {{garden.likes.length}}</h4> <button ng-if="gardensIndex.hasLiked(garden)" class="update" ng-click="gardensIndex.like(garden)">Like</button><button ng-if="!gardensIndex.hasLiked(garden)" class="update" ng-click="gardensIndex.unlike(garden)">Unlike</button>
+
+        </div>
+      </li>
+    </ul>

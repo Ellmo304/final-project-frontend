@@ -1,4 +1,5 @@
 <section class="row">
+  <h2>Edit this Garden's Info</h2>
   <form ng-submit="gardensEdit.update()">
     <div class="twelve columns">
       <label>Title</label>
@@ -6,6 +7,17 @@
       <label>Description</label>
       <input type="text" name="description" placeholder="Description" ng-model="gardensEdit.garden.description" class="u-full-width">
     </div>
-    <button>Update</button>
+    <button class="update">Update</button>
   </form>
 </section>
+
+<section class="row">
+
+  <h2>Edit this Garden's Images</h2>
+  <ul>
+    <li ng-repeat="image in gardensEdit.garden.images"> <button class="delete" ng-click="gardensEdit.deleteImage(image)">Delete this image</button>  <img style="width: 500px" ng-src="{{image.url}}"/></li>
+  </ul>
+</section>
+
+
+<button class="edit" ui-sref="imagesNew({id: gardensEdit.garden.id})">Add new image/s for this garden</button>

@@ -1,6 +1,14 @@
-<section class="row">
-  <form ng-submit="itemsNew.create()">
+<section class="row" ng-controller="ItemsNewController as itemsNew">
+
+<h2>Now Add Plants & Materials to your Garden!</h2>
+
+<p>Time to show off your creativity to everyone! Upload some images to show off your garden design idea below. You can add as many as you like for each garden you upload. Why not share your initial plans and garden design drawings now and later on, update with some photos of your garden once you've implemented your awesome ideas? </p>
+
+  <h3>Add a new Item to our site:</h3>
     <div class="twelve columns">
+  <form style="padding: 10px;" ng-submit="itemsNew.create()">
+
+      <label>Item Type</label>
       <select ng-model="itemsNew.item.item_type">
         <option value="Plant">Plant</option>
         <option ng-model="itemsNew.item.item_type" value="Material">Material</option>
@@ -20,7 +28,57 @@
       <label>Image</label>
       <input type="text" name="image" placeholder="Image Url" ng-model="itemsNew.item.image" class="u-full-width">
 
-    </div>
-    <button>Update</button>
+    <button class="edit">Add Item</button>
   </form>
+</div>
+
+  <h3>Or search Amazon for your Item:</h3>
+
+  <form ng-submit="itemsNew.searchAmazon()">
+    <input type="text" name="searchTerm" ng-model="itemsNew.searchTerm">
+    <button class="update">Search Amazon</button>
+  </form>
+
+  <h2 ng-if="itemsNew.displayedResults.length > 0">Search Results:</h2>
+
+  <ul>
+    <div class="col-md-6"  ng-repeat="item in itemsNew.displayedResults">
+      <li class="itemBox col-md-12" style="height: 100px; padding: 10px;">
+
+          <div style="background-image: url({{item.image}});" alt="Description"></div>
+          <button class="edit" style="float: right;" ng-click="itemsNew.createNew(item)">Add</button>
+          <select ng-model="itemsNew.item_type">
+            <option value="Plant">Plant</option>
+            <option ng-model="itemsNew.item_type" value="Material">Material</option>
+          </select>
+          <h5>{{ item.price }}</h5>
+          <h3 style="margin-top: 5px;">{{ item.name }}</h3>
+      </li>
+    </div>
+  </ul>
+
 </section>
+
+
+
+
+
+<h3>Or Add an Existing Item from our site:</h3>
+
+<section ng-controller="ItemsIndexController as itemsIndex">
+  <ul>
+    <div class="col-md-6"  ng-repeat="item in itemsIndex.all">
+      <li class="itemBox col-md-12" style="height: 100px; padding: 10px;">
+
+        <a ui-sref="itemsShow({ id: item.id })">
+          <div style="background-image: url({{item.image}});" alt="Description"></div>  </a>
+          <button class="edit" style="float: right;" ng-click="itemsIndex.addItem(item)">Add</button>
+          <a ui-sref="itemsShow({ id: item.id })">
+            <h5>{{ item.price }}</h5>
+            <h3 style="margin-top: 5px;">{{ item.name }}</h3>
+          </a>
+        </li>
+      </div>
+    </ul>
+  </section>
+  <button class="update" ui-sref="gardensIndex" style="float: right;">Finish</button>

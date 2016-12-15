@@ -2,13 +2,11 @@
   <form ng-submit="gardensNew.create()">
     <div class="twelve columns">
       <input type="hidden" name="user_id" ng-model="gardensNew.garden.user_id">
-      <label>Date</label>
-      <input type="date" name="date" ng-model="gardensNew.garden.date">
-      <label>Title</label>
-      <input type="text" name="title" placeholder="Title" ng-model="gardensNew.garden.title" class="u-full-width">
-      <label>Description</label>
-      <input type="text" name="description" placeholder="Description" ng-model="gardensNew.garden.description" class="u-full-width">
+      <label>Title your garden: </label><br>
+      <input type="text" name="title" placeholder="Title" ng-model="gardensNew.garden.title" style="width: 400px;"><br>
+      <label>Tell us about your garden design: </label><br>
+      <textarea type="text" name="description" placeholder="Description" ng-model="gardensNew.garden.description" style="width: 800px; height: 500px;"></textarea>
     </div>
-    <button>Update</button>
+    <button class="update">Next</button>
   </form>
 </section>

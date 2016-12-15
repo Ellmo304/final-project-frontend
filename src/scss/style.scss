@@ -1,29 +1,86 @@
+@import "_variables";
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+}
 
 .gardenBox {
-    padding: 30px;
-    border: 3px solid grey;
-    list-style-type: none;
-    height: 600px;
-    max-height: 600px;
-    text-align: center;
-    margin-bottom: 30px;
-    overflow: auto;
+  padding: 5px 30px 5px 30px;
+  border: 3px solid grey;
+  background-color: rgba(255,255,255,0.8);
+  list-style-type: none;
+  margin-left: 0;
+  height: 700px;
+  max-height: 700px;
+  text-align: center;
+  margin-bottom: 30px;
+  overflow: auto;
+  ul {
+    list-style:none;
+    padding-left:0;
+  }
 }
 
-#myNav {
-  margin-bottom: 40px;
+.indexBox {
+  padding: 30px;
+  // border: 3px solid lightgrey;
+  border-radius: 15px;
+  list-style-type: none;
+  background-color: rgba(255,255,255,0.8);
+  height: 440px;
+  max-height: 600px;
+  text-align: center;
+  margin-bottom: 30px;
+  overflow: auto;
+  box-shadow: 5px 5px 10px #888888;
+
+  ul {
+    list-style:none;
+    padding-left:0;
+  }
+  img{
+    height: 195px;
+  }
 }
+
+.itemBox {
+  padding: 10px;
+  ul { list-style:none;
+    padding-left:0;
+  }
+  border: 3px solid grey;
+  list-style-type: none;
+  height: 100px;
+  background-color: rgba(255,255,255,0.8);
+  max-height: 100px;
+  text-align: center;
+  margin-bottom: 30px;
+  overflow: auto;
+  div {
+    float: left;
+    background-size: cover;
+    margin: 0 auto;
+    width: 75px;
+    height:75px;
+  }
+}
+
+
 
 .mainImg {
   margin-top: 15px;
   margin-bottom: 15px;
+  width: 500px;
+  height: 400px;
 }
 
 .circle {
-    border-radius: 50%;
-    margin-right: 15px;
-    // margin-top: -15px;
-    // float: left;
+  border-radius: 50%;
+  margin-right: 15px;
+  // margin-top: -15px;
+  // float: left;
 }
 
 li {
@@ -31,35 +88,394 @@ li {
 }
 
 
+
+
+.indexGrid > li {
+  width: 14px;
+  height: 14px;
+  // border: 1px solid black;
+  display: inline-block;
+  line-height: 5px;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  img {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+  }
+  // margin-bottom: -30px;
+
+  // margin-bottom: -8px;
+
+}
+
+.indexGrid {
+  font-size: 0;
+  padding: 0px;
+  background-color: rgba(255,255,255,0.8);
+  margin: 0px;
+  max-width: 360px;
+  max-height: 100px;
+}
+
+
+//----------------design grid---------------------------------------------------------------------------------------
+
 .grid > li {
   width: 49px;
+  word-break: break-all;
+  overflow: hidden;
   height: 49px;
   border: 1px solid black;
   display: inline-block;
   list-style-type: none;
   padding: 0;
   margin-bottom: -8px;
+  img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+  }
 
 }
 
 .grid {
-  max-width: 1060px;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+  max-width: 1000px;
+}
+
+
+
+
+
+
+/// classes for garden design textures-------------------------------------------------------------------------------------------
+
+#designBar {
+  text-align: center;
+  background-color: rgba(255,255,255,0.8);
+
+  h6 {
+    text-align: center;
+    margin-left: -22px;
+  }
+}
+
+#texture {
+  height: 35px;
+  width: 35px;
+  display: block;
+  margin-left: 5px;
+}
+
+#plant {
+  height: 50px;
+  width: 50px;
+  margin-left: -5px;
+  display: block;
 }
 
 .grass {
   background-image: url('http://www.freetexturesdownload.com/image/Grass-Free-Textures-15015.jpg');
-  width: 50px;
-  height: 50px;
+  width: 100%;
+  height: 100%;
 }
 
 .soil {
   background-image: url('http://previewcf.turbosquid.com/Preview/Content_2009_07_13__19_04_42/grnd19.png41d4d797-ce09-4a5a-b1e5-8db383f31d3fLarger.jpg');
-  width: 50px;
-  height: 50px;
+  width: 100%;
+  height: 100%;
+}
+
+.water {
+  background-image: url('https://s-media-cache-ak0.pinimg.com/564x/0e/98/9b/0e989bc5eae0aa4382e6ab07300b7b04.jpg');
+  width: 100%;
+  height: 100%;
 }
 
 .paving {
   background-image: url('http://catalystarchitecture.com/pdc/YC_100_CD/09_base_plans/CADD_Files_civil_as-built/Sitework.Paving%20-%20Surfacing.Pavers.Terra%20Cotta.bump.jpg');
-  width: 50px;
-  height: 50px;
+  width: 100%;
+  height: 100%;
 }
+
+.decking {
+  background-image: url('https://www.sketchuptextureclub.com/public/texture_m/0075-teak-wood-decking-boat-texture-seamless.jpg');
+  width: 100%;
+  height: 100%;
+}
+
+.stones {
+  background-image: url('http://www.freetexturesdownload.com/image/Stones-Free-Textures-1451.jpg');
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+}
+
+// .big {
+//   &:before{
+//     content: '';
+//   width: 300%;
+//   height: 300%;
+//   position: absolute;
+//   top: -100%;
+//   left: -100%;
+//   }
+// }
+
+.shrub {
+  background-image: url('http://www.hslandscaping.com/images/serv-shrub.png');
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+}
+
+
+.tree {
+  background-image: url('http://vignette1.wikia.nocookie.net/farmville2/images/5/5b/Willow_Tree.png/revision/latest?cb=20121011130840');
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.flowers {
+  background-image: url('http://roelse.us/rlc/center/flower5.png');
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.hedge {
+
+  background-image: url('http://vignette2.wikia.nocookie.net/battlenations/images/f/fd/Deco-ShortHedge.png/revision/latest?cb=20121016041944');
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.flowerShrub {
+  background-image: url('http://vterrain.org/Locations/za/fynbos_01_256.png');
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+}
+//---------------------------------------------------------------------------------------------------------------------------
+
+
+/*
+essential styles:
+these make the slideshow work
+*/
+#slides {
+  position: relative;
+  height: 150px;
+  padding: 0px;
+  margin: 30px 0px 30px 0px;
+  list-style-type: none;
+}
+
+.slide {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+
+  -webkit-transition: opacity 4s;
+  -moz-transition: opacity 4s;
+  // -o-transition: opacity 1s;
+  transition: opacity 4s;
+}
+
+.showing{
+  opacity: 1;
+  z-index: 2;
+}
+
+//-----------------------------------landing page----------------------------------------------------------------
+
+
+#titleHolder {
+  background-size: cover;
+  background-color: rgba(0,0,0,0.5);
+}
+
+
+.splash {
+  height: 105vh;
+  width: 100vw;
+  margin-top: -20px;
+  margin-left: -155px;
+}
+#login {
+  background-image: url("http://www.gardenclublondon.co.uk/wp-content/uploads/2012/08/small-garden-design-London.jpg");
+  background-size: cover;
+}
+#landing {
+  background-image: url("http://www.echinopsgardendesign.co.uk/wordpress/wp-content/uploads/2012/03/long_thin_garden.jpg");
+  background-size: cover;
+}
+#register {
+  background-image: url("http://www.abroughtondesign.com/wp-content/uploads/2015/04/SAMPLE-PHOTO.jpg");
+  background-size: cover;
+}
+body {
+  background-image: url("http://livyogastudio.com/wp-content/uploads/2016/07/nice-contemporary-landscape-design-ideas-as-minimalist-garden.jpg");
+  background-size: cover;
+}
+
+
+
+
+
+.splashButton {
+  color: white;
+  font-size: 20px;
+  background: rgba(0,0,0,0);
+  border: solid white 5px;
+  padding: 15px;
+  width: 200px;
+  border-radius: 45px;
+  text-align: center;
+  margin-bottom: 238px;
+  // margin-left: 33%;
+  &:hover{
+    background: black;
+  }
+}
+
+.gdnInput {
+  border-radius: 10px;
+}
+
+main.container {
+  background-color: rgba(255,255,255,1);
+  margin-top: -15px;
+  border-left: 5px solid #14CC21;
+  border-right: 5px solid #14CC21;
+  border-bottom: 5px solid #14CC21;
+  padding-right: 55px;
+  height: 100%;
+  min-height: 704px;
+}
+
+.mainTitle {
+  padding-top: 235px;
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  font-size: 120px;
+}
+
+h3.mainTitle {
+  padding-top: 20px;
+  font-weight: 400;
+  font-size: 45px;
+  padding-bottom: 20px;
+}
+
+.pageHeading {
+  text-align: center;
+  margin-top: 22px;
+  margin-bottom: 45px;
+}
+
+.myTitle {
+  text-align: center;
+  margin-top: 45px;
+  color: #14CC21;
+  font-size: 70px;
+  font-weight: 900;
+  // text-shadow: 4px 2px 6px #331;
+  text-shadow: 3px 3px 2px #444444;
+  margin-bottom: 45px;
+}
+
+#myNav {
+  margin-bottom: 15px;
+  font-size: 17px;
+  border-bottom: 5px solid #14CC21;
+  a {    font-weight: 400;
+    color: white;}
+    background-color: rgba(0,0,0,1);
+  }
+
+.myBrand {
+font-size: 25px;
+}
+
+
+
+
+  //=-----------------------------------------profile-------------------------------------------------------------
+
+  #profileContainer {
+    height: 550px;
+    background-color: rgba(255,255,255,0.8);
+    padding-top: 50px;
+    text-align: left;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    h2 {
+      padding-top: 20px;
+    }
+    img {
+      float: right;
+    }
+  }
+
+  body {
+    text-align: center;
+  }
+
+  main a {
+    color: #3284F0
+  }
+
+  button {
+    color: white;
+    padding: 5px;
+    border: 2px solid white;
+    border-radius: 15px;
+    width: 100px;
+  }
+  button.update {
+    background-color: $update;
+    &:hover {
+      background-color: lighten($update, 10%);
+    }
+  }
+  button.edit {
+    background-color: $edit;
+    &:hover {
+      background-color: lighten($edit, 10%);
+    }
+  }
+  button.delete {
+    background-color: $delete;
+    width: 25px;
+    padding: 0;
+    float: right;
+    &:hover {
+      background-color: lighten($delete, 10%);
+    }
+  }
+  button.updateLong {
+    background-color: $update;
+    width: 200px;
+    &:hover {
+      background-color: lighten($update, 10%);
+    }
+  }
+  button.deleteLong {
+    background-color: $delete;
+    &:hover {
+      background-color: lighten($delete, 10%);
+    }
+  }

@@ -1,11 +1,16 @@
 <section class="row">
   <form ng-submit="imagesNew.create()">
     <div class="twelve columns">
+      <h2>Add some Images to your Garden!</h2>
+      <p>Time to show off your creativity to everyone! Upload some images to show off your garden design idea below. You can add as many as you like for each garden you upload. Why not share your initial plans and garden design drawings now and later on, update with some photos of your garden once you've implemented your awesome ideas? </p>
       <input type="hidden" name="garden_id" ng-model="imagesNew.image.garden_id">
       <label>Url</label>
-      <input type="text" name="url" placeholder="Image Url" ng-model="imagesNew.image.url" class="u-full-width">
-    </div>
-    <button>Update</button>
+      <input type="text" name="url" placeholder="Image Url" ng-model="imagesNew.image.url" style="width: 400px;">
+      <button class="edit" style="width: 190px;">Upload Image</button>
+
   </form>
-  <button ng-click="imagesNew.addDesign()">Done</button>
+  <button class="update" ng-click="imagesNew.addDesign()" style="float: right; margin-right: 0px;">Next</button>
+
+</div>
+
 </section>

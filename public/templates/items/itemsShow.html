@@ -1,9 +1,17 @@
 <section>
-  <h1>Items Show</h1>
-      <h2>{{ itemsShow.item.name }}</h2>
-      <h4>By {{ itemsShow.item.price }}</h4>
-      <img style="width: 500px;" ng-src="{{itemsShow.item.image}}" alt="Description" />
+  <div id="profileContainer" style="margin-top: 110px;" class="col-md-12">
+        <h2>{{ itemsShow.item.name }}</h2>
+        <h4>{{ itemsShow.item.price }}</h4>
+        <img style="width: 500px; margin-top: -110px;" ng-src="{{itemsShow.item.image}}" alt="Description" />
+      <br>
       <p>About: {{ itemsShow.item.description }}</p>
-  <a ui-sref="itemsEdit({ id: itemsShow.item.id })" class="button">Edit</a>
-  <button ng-click="itemsShow.deleteItem()">Delete</button>
+      <p>This item appears in the following gardens:
+        <ul>
+          <li ng-repeat="garden in itemsShow.item.gardens"><a ui-sref="gardensShow({ id: garden.id })">{{ garden.title }}</a>  </li>
+        </ul>
+      </p>
+
+    <!-- <a ui-sref="itemsEdit({ id: itemsShow.item.id })" class="button">Edit</a> -->
+    <!-- <button ng-click="itemsShow.deleteItem()">Delete</button> -->
+</div>
 </section>

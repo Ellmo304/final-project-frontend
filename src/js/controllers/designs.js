@@ -30,12 +30,13 @@ function DesignsNewController(Design, Tile, Garden, $state) {
       designId = garden.design.id;
       for (let i=0; i < tiles.length; i++) {
         designsNew.tile = {};
+        designsNew.tile.image = tiles[i].dataset.image;
         designsNew.tile.class_type = tiles[i].className;
         designsNew.tile.position = tiles[i].id;
         designsNew.tile.design_id = designId;
         Tile.save(designsNew.tile);
       }
-      $state.go('gardensIndex');
+      $state.go('itemsNew', {id: $state.params.id});
     });
   }
 
@@ -47,12 +48,24 @@ function DesignsNewController(Design, Tile, Garden, $state) {
 
   function setClass(texture) {
     designsNew.selectedClass = texture;
+    designsNew.selectedPng = 'http://downloads2.esri.com/support/TechArticles/blank256.png';
   }
 
   function setTile(index) {
-    // console.log(tiles[index].className);
+    console.log(tiles[index].className);
     tiles[index].className = `${designsNew.selectedClass}`;
+    tiles[index].dataset.image = designsNew.selectedPng;
+    tiles[index].innerHTML = `<img src=${designsNew.selectedPng}>`;
+    console.log(tiles[index]);
   }
+
+  function setPng(string) {
+    designsNew.selectedPng = string;
+    console.log(designsNew.selectedPng, string);
+  }
+
+  designsNew.selectedPng = 'http://downloads2.esri.com/support/TechArticles/blank256.png';
+  this.setPng = setPng;
   this.tilesCreate = tilesCreate;
   this.create = create;
   this.setClass = setClass;
@@ -76,19 +89,17 @@ function DesignsShowController(Design, $state, $auth) {
   const designsShow = this;
   this.isLoggedIn = $auth.isAuthenticated;
   designsShow.design = Design.get($state.params);
-  // console.log(designsShow.design);
 
-  // function isCurrentUser() {
-  //   Design.get({ id: ($state.params) }, (design) => {
-  //     designsShow.design = design;
-  //   });
-  //   return designsShow.design.user.id === $auth.getPayload().id;
-  // }
+  function isCurrentUser() {
+    return designsShow.design.user.id === $auth.getPayload().id;
+  }
+
   function deleteDesign() {
     designsShow.design.$remove(() => {
       $state.go('designsIndex');
     });
   }
+  this.isCurrentUser = isCurrentUser;
   this.deleteDesign = deleteDesign;
 }
 

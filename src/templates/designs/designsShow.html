@@ -4,9 +4,8 @@
       <h2>{{ designsShow.design.garden.id }}</h2>
 
 <ol id="designGrid" class="grid col-md-11">
-  <li ng-repeat="tile in designsShow.design.tiles | orderBy : 'position'" class="{{tile.class_type}}"></li>
+  <li style="border: none;" ng-repeat="tile in designsShow.design.tiles | orderBy : 'position'" class="{{tile.class_type}}"><img ng-src="{{tile.image}}"></li>
 </ol>
 
-
-  <button ng-click="designsShow.deleteItem()">Delete</button>
+  <button class="delete" ng-if="designsShow.isCurrentUser()" ng-click="designsShow.deleteDesign()">Delete</button>
 </section>
