@@ -29,29 +29,18 @@ function MainController($auth, $state, $rootScope, Garden) {
   const protectedPages = ['gardensEdit', 'itemsNew', 'imagesNew', 'designsNew'];
 
 
-  function protectPages(e, toState, toParams) {
+  function protectPages(e, toState) {
     const payload = $auth.getPayload();
     if(payload) {
       main.currentUser = $auth.getPayload().id;
     }
-    Garden.get({id: parseFloat(toParams.id)}, (myGarden) => {
-      console.log(myGarden);
-      if((!$auth.isAuthenticated() &&
-      protectedPages.includes(toState.name)) ||
-      (protectedPages.indexOf(toState.name) !== -1) && (parseFloat(myGarden.user.id) !== $auth.getPayload().id)) {
-        e.preventDefault();
-        $state.go('login');
-      } else if ((!$auth.isAuthenticated() &&
-      protectedStates.includes(toState.name)) ||
-      (protectedStates.indexOf(toState.name) !== -1) && (parseFloat(toParams.id) !== $auth.getPayload().id)) {
-        e.preventDefault();
-        $state.go('login');
-      }
-    });
+    if(!$auth.isAuthenticated() &&
+    protectedPages.includes(toState.name)) {
+      e.preventDefault();
+      $state.go('login');
+    }
+
   }
-
-
-  const protectedStates = ['usersEdit'];
 
 
 

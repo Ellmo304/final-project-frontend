@@ -145,10 +145,16 @@ function GardensShowController(Garden, $state, $auth, Comment, Item) {
 
 
 
-GardensEditController.$inject = ['Garden', '$state', 'Image'];
-function GardensEditController(Garden, $state, Image) {
+GardensEditController.$inject = ['Garden', '$state', 'Image', '$rootScope', '$auth'];
+function GardensEditController(Garden, $state, Image, $rootScope, $auth) {
   const gardensEdit = this;
-  gardensEdit.garden = Garden.get($state.params);
+  Garden.get($state.params, (garden) => {
+    gardensEdit.garden = garden;
+
+    if(garden.user.id !== $auth.getPayload().id) {
+      $state.go('login');
+    }
+  });
 
   function update() {
     gardensEdit.garden.$update(() => {
