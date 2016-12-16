@@ -1,11 +1,11 @@
 <section>
   <h1>Designs Show</h1>
       <h2>{{ designsShow.design.name }}</h2>
-      <h2>{{ designsShow.design.garden.id }}</h2>
+      <!-- <h2>{{ designsShow.design.garden.id }}</h2> -->
 
 <ol id="designGrid" class="grid col-md-11">
   <li style="border: none;" ng-repeat="tile in designsShow.design.tiles | orderBy : 'position'" class="{{tile.class_type}}"><img ng-src="{{tile.image}}"></li>
 </ol>
 
-  <button class="delete" ng-if="designsShow.isCurrentUser()" ng-click="designsShow.deleteDesign()">Delete</button>
 </section>
+<button style="margin-top: 435px;" class="deleteLong" ng-if="designsShow.isCurrentUser()" ng-click="designsShow.deleteDesign()">Delete</button>
