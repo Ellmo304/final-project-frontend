@@ -3,11 +3,11 @@
   <form ng-submit="gardensEdit.update()">
     <div class="twelve columns">
       <label>Title</label>
-      <input type="text" name="title" placeholder="Title" ng-model="gardensEdit.garden.title" class="u-full-width">
+      <input class="gdnInput" style="border-radius: 10px; padding: 5px;" type="text" name="title" placeholder="Title" ng-model="gardensEdit.garden.title" class="u-full-width">
       <label>Description</label>
-      <input type="text" name="description" placeholder="Description" ng-model="gardensEdit.garden.description" class="u-full-width">
+      <input class="gdnInput" style="border-radius: 10px; padding: 5px;" type="text" name="description" placeholder="Description" ng-model="gardensEdit.garden.description" class="u-full-width">
     </div>
-    <button class="update">Update</button>
+    <button class="update" style="margin-top: 20px;">Update</button>
   </form>
 </section>
 
@@ -15,9 +15,9 @@
 
   <h2>Edit this Garden's Images</h2>
   <ul>
-    <li ng-repeat="image in gardensEdit.garden.images"> <button class="delete" ng-click="gardensEdit.deleteImage(image)">Delete this image</button>  <img style="width: 500px" ng-src="{{image.url}}"/></li>
+    <li ng-repeat="image in gardensEdit.garden.images"> <button class="deleteLong" ng-click="gardensEdit.deleteImage(image)">Delete Image</button>  <img style="width: 500px" ng-src="{{image.url}}"/></li>
   </ul>
 </section>
 
 
-<button class="edit" ui-sref="imagesNew({id: gardensEdit.garden.id})">Add new image/s for this garden</button>
+<button class="edit" style="margin-bottom: 20px;" ui-sref="imagesNew({id: gardensEdit.garden.id})">Add Image</button>

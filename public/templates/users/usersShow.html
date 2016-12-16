@@ -19,15 +19,13 @@
     <ul>
       <h2>My Gardens</h2>
       <li class="col-md-4" ng-repeat="garden in usersShow.user.gardens | orderBy: 'id':true" style="padding: 10px;">
-        <div class="indexBox col-md-12" style="padding:15px;">
+        <div class="indexBox col-md-12" style="height: 400px; padding:15px; margin-bottom:20px;">
           <br>
           <a ui-sref="gardensShow({ id: garden.id })">
             <h2>{{ garden.title }}</h2>
             <img class="mainImg" style="width: 270px;" ng-src="{{garden.images[0].url}}" alt="Description" />
             <br>
           </a>
-          <h4>Likes: {{garden.likes.length}}</h4> <button class="update" ng-click="gardensIndex.like(garden)">Like</button>
-
         </div>
       </li>
     </ul>

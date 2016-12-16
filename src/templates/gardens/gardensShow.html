@@ -47,7 +47,7 @@
           <p>About: {{ gardensShow.garden.description }}</p>
           <button class="edit" ng-if="gardensShow.isCurrentUser()" ui-sref="gardensEdit({ id: gardensShow.garden.id })">Edit</button>
           <button class="deleteLong" ng-if="gardensShow.isCurrentUser()" ng-click="gardensShow.deleteGarden()">Delete</button>
-          <button class="update" ng-click="gardensShow.showDesign(gardensShow.garden.design.id)">View Design</button>
+          <button class="update" ng-click="gardensShow.showDesign(gardensShow.garden.design.id)">Design</button>
         </div>
       </section>
 

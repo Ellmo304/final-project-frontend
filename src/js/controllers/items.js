@@ -68,6 +68,7 @@ function ItemsIndexController(Item, Garden, $state) {
       console.log(garden);
       item.garden_ids.push(garden.id);
       item.$update();
+      $state.reload();
     }
   );}
   this.addItem = addItem;
