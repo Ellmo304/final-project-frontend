@@ -1,12 +1,15 @@
+
+<section  class="container" style="background-color: rgba(255,255,255,0.9); height: 748px; overflow: auto;">
+
 <h1 class="pageHeading">Create a new Garden Design!</h1>
 
 <p style="margin-bottom: 35px;">Time to show off your creativity to everyone! Flick between Materials and Plants using the buttons on the left and map out your garden design on the grid, ready to be saved to your project and displayed proudly to other myGarden users! </p>
 
-<div id="designBar" style="padding-left:22px;" class="col-md-1">
+<div id="designBar" style="background-color: rgba(255,255,255,0.9); padding-left:22px;" class="col-md-1">
   <button style="margin-left: -30px;" class="edit" ng-click="currentChoice = 1">Materials</button>
   <button style="margin: 0px 0px 10px -30px;" class="edit" ng-click="currentChoice = 2">Plants</button>
 
-  <div ng-show="currentChoice === 1">
+  <div style="background-color: rgba(255,255,255,0.9);" ng-show="currentChoice === 1">
     <div id="texture" class="grass" ng-click="designsNew.setClass('grass')">
     </div>
     <h6>Turf</h6>
@@ -27,7 +30,7 @@
     <h6>Stones</h6>
   </div>
 
-  <div ng-show="currentChoice === 2">
+  <div style="background-color: rgba(255,255,255,0.9);" ng-show="currentChoice === 2">
     <div id="plant" class="shrub" ng-click="designsNew.setPng('http://www.hslandscaping.com/images/serv-shrub.png')">
     </div>
     <h6>Shrub</h6>
@@ -53,3 +56,4 @@
 </ol>
 
 <button style="margin: 30px 60px; float:right" class="update" ng-click="designsNew.create()">Next</button>
+</section>

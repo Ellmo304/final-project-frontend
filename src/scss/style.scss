@@ -8,15 +8,16 @@ body {
 
 .gardenBox {
   padding: 5px 30px 5px 30px;
+  // margin-bottom: -40px;
   background-color: rgba(255,255,255,0.8);
   list-style-type: none;
   // border-radius: 15px;
   // margin-left: 5px;
-  height: 700px;
+  height: 748px;
   // box-shadow: 5px 5px 10px #888888;
-  max-height: 700px;
+  max-height: 748px;
   text-align: center;
-  margin-bottom: 30px;
+  // margin-bottom: 30px;
   overflow: auto;
   ul {
     list-style:none;
@@ -222,17 +223,6 @@ li {
   height: 100%;
 }
 
-// .big {
-//   &:before{
-//     content: '';
-//   width: 300%;
-//   height: 300%;
-//   position: absolute;
-//   top: -100%;
-//   left: -100%;
-//   }
-// }
-
 .shrub {
   background-image: url('http://www.hslandscaping.com/images/serv-shrub.png');
   background-size: contain;
@@ -308,37 +298,13 @@ these make the slideshow work
 
 
 #titleHolder {
+  min-width: 100%;
+  min-height: 100%;
+  margin-top: -20px;
+  margin-right: -45px;
   background-size: cover;
   background-color: rgba(0,0,0,0.5);
 }
-
-
-.splash {
-  height: 105vh;
-  width: 100vw;
-  margin-top: -20px;
-  margin-left: -155px;
-}
-#login {
-  background-image: url("http://www.gardenclublondon.co.uk/wp-content/uploads/2012/08/small-garden-design-London.jpg");
-  background-size: cover;
-}
-#landing {
-  background-image: url("http://www.echinopsgardendesign.co.uk/wordpress/wp-content/uploads/2012/03/long_thin_garden.jpg");
-  background-size: cover;
-}
-#register {
-  background-image: url("http://www.abroughtondesign.com/wp-content/uploads/2015/04/SAMPLE-PHOTO.jpg");
-  background-size: cover;
-}
-body {
-  background-image: url("http://www.iwallfree.com/wp-content/uploads/2014/01/contemporary_garden_design_residential_garden_design_portfolio.jpg");
-  background-size: cover;
-}
-
-
-
-
 
 .splashButton {
   color: white;
@@ -360,17 +326,24 @@ body {
   border-radius: 10px;
 }
 
-main.container {
-  background-color: rgba(255,255,255,1);
+#myMainBg {
+  background-color: rgba(255,255,255,0.9);
+  background-size: cover;
   margin-top: -15px;
   font-size: 16px;
+  background-image: url("http://industrystandarddesign.com/wp-content/uploads/2014/12/modern-garden-patio-design.jpg");
   border-left: 5px solid #14CC21;
   border-right: 5px solid #14CC21;
   border-bottom: 5px solid #14CC21;
-  padding-right: 45px;
-  height: 100%;
+  min-width: 1440px;
+  padding-right: -45px;
+  max-width: 1440px;
   min-height: 748px;
+  max-height: 748px;
+  overflow: auto;
 }
+
+
 
 .mainTitle {
   padding-top: 235px;
