@@ -9,15 +9,15 @@
     </div>
     <button class="update" style="margin-top: 20px;">Update</button>
   </form>
-</section>
 
-<section class="row">
 
   <h2>Edit this Garden's Images</h2>
   <ul>
-    <li ng-repeat="image in gardensEdit.garden.images"> <button class="deleteLong" ng-click="gardensEdit.deleteImage(image)">Delete Image</button>  <img style="width: 500px" ng-src="{{image.url}}"/></li>
+    <li ng-repeat="image in gardensEdit.garden.images"> <img style="width: 500px" ng-src="{{image.url}}"/><button class="deleteLong" ng-click="gardensEdit.deleteImage(image)">Delete Image</button>  </li>
+
+
   </ul>
+  <button class="edit" style="margin-bottom: 20px;" ui-sref="imagesNew({id: gardensEdit.garden.id})">Add Image</button>
+
+
 </section>
-
-
-<button class="edit" style="margin-bottom: 20px;" ui-sref="imagesNew({id: gardensEdit.garden.id})">Add Image</button>
