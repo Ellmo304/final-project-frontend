@@ -4,7 +4,7 @@
     <div class="col-md-6"  ng-repeat="item in itemsIndex.all | orderBy: 'id'" style="margin-top: 50px;padding: 10px;">
       <li class="itemBox col-md-12" style="margin-bottom: 0px;">
         <a ui-sref="itemsShow({ id: item.id })">
-          <div style="background-image: url({{item.image}});" alt="Description"></div>
+          <div class="blueBorder" style="background-image: url({{item.image}});" alt="Description"></div>
           <h5 style="float: right; margin-top: -3px;">{{ item.price }}</h5>
 
           <h3 style="margin-top: 5px;">{{ item.name }}</h3>
