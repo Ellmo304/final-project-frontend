@@ -9,7 +9,7 @@
           <a ui-sref="gardensShow({ id: garden.id })">
             <br><h2 style="margin-top: 30px;">{{ garden.title }}</h2>
 
-            <img class="mainImg blueBorder" style="width: 270px;" ng-src="{{garden.images[0].url}}" alt="Description" />
+            <img class="mainImg" style="width: 270px;" ng-src="{{garden.images[0].url}}" alt="Description" />
             <br>
           </a>
           <h4>Likes: {{garden.likes.length}}</h4> <button ng-if="gardensIndex.hasLiked(garden)" class="update" ng-click="gardensIndex.like(garden)">Like</button><button ng-if="!gardensIndex.hasLiked(garden)" class="update" ng-click="gardensIndex.unlike(garden)">Unlike</button>

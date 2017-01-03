@@ -2,7 +2,7 @@
       <h2 style="margin-top: 30px; margin-bottom: 50px;">{{ designsShow.design.name }}</h2>
       <!-- <h2>{{ designsShow.design.garden.id }}</h2> -->
 
-<ol style="margin-left: 70px;" id="designGrid" class="grid col-md-11 blueBorder">
+<ol style="margin-left: 70px;" id="designGrid" class="grid col-md-11">
   <li style="border: none;" ng-repeat="tile in designsShow.design.tiles | orderBy : 'position'" class="{{tile.class_type}}"><img ng-src="{{tile.image}}"></li>
 </ol>
 <button style="margin-top: 10px;" class="deleteLong" ng-if="designsShow.isCurrentUser()" ng-click="designsShow.deleteDesign()">Delete</button>
