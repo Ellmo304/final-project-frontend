@@ -27,7 +27,7 @@ function UsersShowController(User, $state, $auth) {
     return $auth.getPayload().id === Number($state.params.id);
   }
   usersShow.isCurrentUser = isCurrentUser;
-  usersShow.user = User.get($state.params);
+  // usersShow.user = User.get($state.params);
   usersShow.deleteUser = deleteUser;
 }
 

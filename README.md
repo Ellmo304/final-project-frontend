@@ -8,7 +8,7 @@ See myGarden [here](https://my-garden-app.herokuapp.com/#!/)
 ![Imgur](http://i.imgur.com/FPEExl6.png)
 <br>
 ###Overview
-The brief for the final project was to create a fully authenticated full stack web application using Ruby-on-Rails and PostGreSQL on the back-end with JavaScript and AngularJS on the front-end. There was a specific focus on relationships between multiple models in the database.
+The brief for the final project was to create a fully authenticated full stack web application using Ruby-on-Rails and PostGreSQL on the back-end with JavaScript and AngularJS on the front-end. There was a specific focus on relationships between multiple models in the database. I chose to build a platform for garden designers to share their project ideas, flesh out their ideas and designs online and receive feedback and ratings from other users in the community.
 
 
 
